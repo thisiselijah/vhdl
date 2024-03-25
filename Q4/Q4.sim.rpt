@@ -1,0 +1,222 @@
+Simulator report for Q4
+Mon Apr 22 00:30:43 2019
+Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 53 nodes     ;
+; Simulation Coverage         ;      83.02 % ;
+; Total Number of Transitions ; 1954         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Stratix II   ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Functional ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Vector input source                                                                        ; Q4.vwf     ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      83.02 % ;
+; Total nodes checked                                 ; 53           ;
+; Total output ports checked                          ; 53           ;
+; Total output ports with complete 1/0-value coverage ; 44           ;
+; Total output ports with no 1/0-value coverage       ; 9            ;
+; Total output ports with no 1-value coverage         ; 9            ;
+; Total output ports with no 0-value coverage         ; 9            ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                  ;
++---------------------------------------------+---------------------------------------------+------------------+
+; Node Name                                   ; Output Port Name                            ; Output Port Type ;
++---------------------------------------------+---------------------------------------------+------------------+
+; |Carry_Look_Ahead|c1                        ; |Carry_Look_Ahead|c1                        ; out0             ;
+; |Carry_Look_Ahead|c2~1                      ; |Carry_Look_Ahead|c2~1                      ; out0             ;
+; |Carry_Look_Ahead|c2~2                      ; |Carry_Look_Ahead|c2~2                      ; out0             ;
+; |Carry_Look_Ahead|c2                        ; |Carry_Look_Ahead|c2                        ; out0             ;
+; |Carry_Look_Ahead|c3~0                      ; |Carry_Look_Ahead|c3~0                      ; out0             ;
+; |Carry_Look_Ahead|c3~1                      ; |Carry_Look_Ahead|c3~1                      ; out0             ;
+; |Carry_Look_Ahead|c3~2                      ; |Carry_Look_Ahead|c3~2                      ; out0             ;
+; |Carry_Look_Ahead|c3~4                      ; |Carry_Look_Ahead|c3~4                      ; out0             ;
+; |Carry_Look_Ahead|c3~5                      ; |Carry_Look_Ahead|c3~5                      ; out0             ;
+; |Carry_Look_Ahead|c3~6                      ; |Carry_Look_Ahead|c3~6                      ; out0             ;
+; |Carry_Look_Ahead|c3                        ; |Carry_Look_Ahead|c3                        ; out0             ;
+; |Carry_Look_Ahead|Cout~0                    ; |Carry_Look_Ahead|Cout~0                    ; out0             ;
+; |Carry_Look_Ahead|Cout~1                    ; |Carry_Look_Ahead|Cout~1                    ; out0             ;
+; |Carry_Look_Ahead|Cout~2                    ; |Carry_Look_Ahead|Cout~2                    ; out0             ;
+; |Carry_Look_Ahead|Cout~4                    ; |Carry_Look_Ahead|Cout~4                    ; out0             ;
+; |Carry_Look_Ahead|Cout~5                    ; |Carry_Look_Ahead|Cout~5                    ; out0             ;
+; |Carry_Look_Ahead|Cout~7                    ; |Carry_Look_Ahead|Cout~7                    ; out0             ;
+; |Carry_Look_Ahead|Cout~8                    ; |Carry_Look_Ahead|Cout~8                    ; out0             ;
+; |Carry_Look_Ahead|Cout~10                   ; |Carry_Look_Ahead|Cout~10                   ; out0             ;
+; |Carry_Look_Ahead|A[0]                      ; |Carry_Look_Ahead|A[0]                      ; out              ;
+; |Carry_Look_Ahead|A[1]                      ; |Carry_Look_Ahead|A[1]                      ; out              ;
+; |Carry_Look_Ahead|A[2]                      ; |Carry_Look_Ahead|A[2]                      ; out              ;
+; |Carry_Look_Ahead|A[3]                      ; |Carry_Look_Ahead|A[3]                      ; out              ;
+; |Carry_Look_Ahead|B[0]                      ; |Carry_Look_Ahead|B[0]                      ; out              ;
+; |Carry_Look_Ahead|B[1]                      ; |Carry_Look_Ahead|B[1]                      ; out              ;
+; |Carry_Look_Ahead|B[2]                      ; |Carry_Look_Ahead|B[2]                      ; out              ;
+; |Carry_Look_Ahead|B[3]                      ; |Carry_Look_Ahead|B[3]                      ; out              ;
+; |Carry_Look_Ahead|S[0]                      ; |Carry_Look_Ahead|S[0]                      ; pin_out          ;
+; |Carry_Look_Ahead|S[1]                      ; |Carry_Look_Ahead|S[1]                      ; pin_out          ;
+; |Carry_Look_Ahead|S[2]                      ; |Carry_Look_Ahead|S[2]                      ; pin_out          ;
+; |Carry_Look_Ahead|S[3]                      ; |Carry_Look_Ahead|S[3]                      ; pin_out          ;
+; |Carry_Look_Ahead|Cout                      ; |Carry_Look_Ahead|Cout                      ; pin_out          ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|P ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|S ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|G ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|S ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|S ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|S ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G ; out0             ;
++---------------------------------------------+---------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                               ;
++--------------------------+--------------------------+------------------+
+; Node Name                ; Output Port Name         ; Output Port Type ;
++--------------------------+--------------------------+------------------+
+; |Carry_Look_Ahead|c1~0   ; |Carry_Look_Ahead|c1~0   ; out0             ;
+; |Carry_Look_Ahead|c2~0   ; |Carry_Look_Ahead|c2~0   ; out0             ;
+; |Carry_Look_Ahead|c2~3   ; |Carry_Look_Ahead|c2~3   ; out0             ;
+; |Carry_Look_Ahead|c3~3   ; |Carry_Look_Ahead|c3~3   ; out0             ;
+; |Carry_Look_Ahead|c3~7   ; |Carry_Look_Ahead|c3~7   ; out0             ;
+; |Carry_Look_Ahead|Cout~3 ; |Carry_Look_Ahead|Cout~3 ; out0             ;
+; |Carry_Look_Ahead|Cout~6 ; |Carry_Look_Ahead|Cout~6 ; out0             ;
+; |Carry_Look_Ahead|Cout~9 ; |Carry_Look_Ahead|Cout~9 ; out0             ;
+; |Carry_Look_Ahead|Cin    ; |Carry_Look_Ahead|Cin    ; out              ;
++--------------------------+--------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                               ;
++--------------------------+--------------------------+------------------+
+; Node Name                ; Output Port Name         ; Output Port Type ;
++--------------------------+--------------------------+------------------+
+; |Carry_Look_Ahead|c1~0   ; |Carry_Look_Ahead|c1~0   ; out0             ;
+; |Carry_Look_Ahead|c2~0   ; |Carry_Look_Ahead|c2~0   ; out0             ;
+; |Carry_Look_Ahead|c2~3   ; |Carry_Look_Ahead|c2~3   ; out0             ;
+; |Carry_Look_Ahead|c3~3   ; |Carry_Look_Ahead|c3~3   ; out0             ;
+; |Carry_Look_Ahead|c3~7   ; |Carry_Look_Ahead|c3~7   ; out0             ;
+; |Carry_Look_Ahead|Cout~3 ; |Carry_Look_Ahead|Cout~3 ; out0             ;
+; |Carry_Look_Ahead|Cout~6 ; |Carry_Look_Ahead|Cout~6 ; out0             ;
+; |Carry_Look_Ahead|Cout~9 ; |Carry_Look_Ahead|Cout~9 ; out0             ;
+; |Carry_Look_Ahead|Cin    ; |Carry_Look_Ahead|Cin    ; out              ;
++--------------------------+--------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+    Info: Processing started: Mon Apr 22 00:30:42 2019
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off Q4 -c Q4
+Info: Using vector source file "D:/學校/課程資料/大二下/數位系統/Q4/Q4.vwf"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      83.02 %
+Info: Number of transitions in simulation is 1954
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Allocated 151 megabytes of memory during processing
+    Info: Processing ended: Mon Apr 22 00:30:43 2019
+    Info: Elapsed time: 00:00:01
+
+

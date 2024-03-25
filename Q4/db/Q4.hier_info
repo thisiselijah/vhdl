@@ -1,0 +1,65 @@
+|Carry_Look_Ahead
+A[0] => Partial_Full_Adder:PFA1.A
+A[1] => Partial_Full_Adder:PFA2.A
+A[2] => Partial_Full_Adder:PFA3.A
+A[3] => Partial_Full_Adder:PFA4.A
+B[0] => Partial_Full_Adder:PFA1.B
+B[1] => Partial_Full_Adder:PFA2.B
+B[2] => Partial_Full_Adder:PFA3.B
+B[3] => Partial_Full_Adder:PFA4.B
+Cin => c1.IN1
+Cin => c2.IN1
+Cin => c3.IN1
+Cin => Cout.IN1
+Cin => Partial_Full_Adder:PFA1.Cin
+S[0] <= Partial_Full_Adder:PFA1.S
+S[1] <= Partial_Full_Adder:PFA2.S
+S[2] <= Partial_Full_Adder:PFA3.S
+S[3] <= Partial_Full_Adder:PFA4.S
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Partial_Full_Adder:PFA1
+A => S.IN0
+A => G.IN0
+B => S.IN1
+B => G.IN1
+Cin => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+P <= S.DB_MAX_OUTPUT_PORT_TYPE
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Partial_Full_Adder:PFA2
+A => S.IN0
+A => G.IN0
+B => S.IN1
+B => G.IN1
+Cin => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+P <= S.DB_MAX_OUTPUT_PORT_TYPE
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Partial_Full_Adder:PFA3
+A => S.IN0
+A => G.IN0
+B => S.IN1
+B => G.IN1
+Cin => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+P <= S.DB_MAX_OUTPUT_PORT_TYPE
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Partial_Full_Adder:PFA4
+A => S.IN0
+A => G.IN0
+B => S.IN1
+B => G.IN1
+Cin => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+P <= S.DB_MAX_OUTPUT_PORT_TYPE
+G <= G.DB_MAX_OUTPUT_PORT_TYPE
+
+
