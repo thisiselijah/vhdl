@@ -1,7 +1,0 @@
-v 4
-file . "adder_subtractor_4bit.vhd" "cc7e9bf7ae227197cadab37883f614b7984770f3" "20240305053329.890":
-  entity adder_subtractor_4bit at 1( 0) + 0 on 15;
-  architecture arch of adder_subtractor_4bit at 13( 311) + 0 on 16;
-file . "full_adder.vhd" "a3744e798067a79dd206e954ae2a27c65cb8ab10" "20240310145228.752":
-  entity full_adder at 2( 14) + 0 on 19;
-  architecture arch of full_adder at 12( 206) + 0 on 20;

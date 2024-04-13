@@ -1,0 +1,12 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+entity module is port
+	(x, y, z : in std_logic;
+	 sum, carry : out std_logic);
+end module;
+architecture dataflow of module is
+begin 
+	sum <= x xor y xor z;
+	carry <= (x and y) or (x and z) or (y and z);
+end dataflow;

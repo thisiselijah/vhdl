@@ -1,0 +1,27 @@
+|test
+clk => qout_ten[0]~reg0.CLK
+clk => qout_ten[1]~reg0.CLK
+clk => qout_ten[2]~reg0.CLK
+clk => qout_ten[3]~reg0.CLK
+clk => qout_one[0]~reg0.CLK
+clk => qout_one[1]~reg0.CLK
+clk => qout_one[2]~reg0.CLK
+clk => qout_one[3]~reg0.CLK
+rst => qout_ten[0]~reg0.ACLR
+rst => qout_ten[1]~reg0.ACLR
+rst => qout_ten[2]~reg0.ACLR
+rst => qout_ten[3]~reg0.ACLR
+rst => qout_one[0]~reg0.ACLR
+rst => qout_one[1]~reg0.ACLR
+rst => qout_one[2]~reg0.ACLR
+rst => qout_one[3]~reg0.ACLR
+qout_one[0] << qout_one[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_one[1] << qout_one[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_one[2] << qout_one[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_one[3] << qout_one[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_ten[0] << qout_ten[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_ten[1] << qout_ten[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_ten[2] << qout_ten[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qout_ten[3] << qout_ten[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
