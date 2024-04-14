@@ -1,109 +1,81 @@
 |Q1
-A[0] => FULL_ADD:G1:0:FA.SA
-A[1] => FULL_ADD:G1:1:FA.SA
-A[2] => FULL_ADD:G1:2:FA.SA
-A[3] => FULL_ADD:G1:3:FA.SA
-B[0] => G1~3.IN0
-B[1] => G1~2.IN0
-B[2] => G1~1.IN0
-B[3] => G1~0.IN0
-cin => G1~0.IN1
-cin => G1~1.IN1
-cin => G1~2.IN1
-cin => G1~3.IN1
-cin => FULL_ADD:G2:5:FA1.SB
-cin => FULL_ADD:G2:4:FA1.SB
-cin => FULL_ADD:G1:0:FA.SCin
-sum[0] <= FULL_ADD:G1:0:FA.SUM
-sum[1] <= FULL_ADD:G1:1:FA.SUM
-sum[2] <= FULL_ADD:G1:2:FA.SUM
-sum[3] <= FULL_ADD:G1:3:FA.SUM
-sum[4] <= FULL_ADD:G2:4:FA1.SUM
-sum[5] <= FULL_ADD:G2:5:FA1.SUM
-cout <= FULL_ADD:G2:5:FA1.Scout
+A[0] => FA:FA0.A
+A[1] => FA:FA1.A
+A[2] => FA:FA2.A
+A[3] => FA:FA3.A
+B[0] => tempB[0].DATAA
+B[0] => tempB[0].DATAB
+B[1] => tempB[1].DATAA
+B[1] => tempB[1].DATAB
+B[2] => tempB[2].DATAA
+B[2] => tempB[2].DATAB
+B[3] => tempB[3].DATAA
+B[3] => tempB[3].DATAB
+cin => tempB[3].OUTPUTSELECT
+cin => tempB[2].OUTPUTSELECT
+cin => tempB[1].OUTPUTSELECT
+cin => tempB[0].OUTPUTSELECT
+cin => FA:FA0.cin
+result[0] <= FA:FA0.sum
+result[1] <= FA:FA1.sum
+result[2] <= FA:FA2.sum
+result[3] <= FA:FA3.sum
+cout <= FA:FA3.cout
 
 
-|Q1|full_add:\G2:5:FA1
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+|Q1|FA:FA0
+A => sum~0.IN0
+A => cout~0.IN0
+A => cout~1.IN0
+B => sum~0.IN1
+B => cout~0.IN1
+B => cout~3.IN0
+cin => sum~1.IN1
+cin => cout~1.IN1
+cin => cout~3.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Q1|full_add:\G2:4:FA1
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+|Q1|FA:FA1
+A => sum~0.IN0
+A => cout~0.IN0
+A => cout~1.IN0
+B => sum~0.IN1
+B => cout~0.IN1
+B => cout~3.IN0
+cin => sum~1.IN1
+cin => cout~1.IN1
+cin => cout~3.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Q1|full_add:\G1:3:FA
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+|Q1|FA:FA2
+A => sum~0.IN0
+A => cout~0.IN0
+A => cout~1.IN0
+B => sum~0.IN1
+B => cout~0.IN1
+B => cout~3.IN0
+cin => sum~1.IN1
+cin => cout~1.IN1
+cin => cout~3.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Q1|full_add:\G1:2:FA
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Q1|full_add:\G1:1:FA
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Q1|full_add:\G1:0:FA
-SA => Sum~0.IN0
-SA => Scout~0.IN0
-SA => Scout~3.IN0
-SB => Sum~0.IN1
-SB => Scout~0.IN1
-SB => Scout~1.IN0
-SCin => Sum~1.IN1
-SCin => Scout~1.IN1
-SCin => Scout~3.IN1
-Scout <= Scout~4.DB_MAX_OUTPUT_PORT_TYPE
-Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+|Q1|FA:FA3
+A => sum~0.IN0
+A => cout~0.IN0
+A => cout~1.IN0
+B => sum~0.IN1
+B => cout~0.IN1
+B => cout~3.IN0
+cin => sum~1.IN1
+cin => cout~1.IN1
+cin => cout~3.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~4.DB_MAX_OUTPUT_PORT_TYPE
 
 

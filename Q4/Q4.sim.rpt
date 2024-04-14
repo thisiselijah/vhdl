@@ -1,6 +1,6 @@
 Simulator report for Q4
-Mon Apr 22 00:30:43 2019
-Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+Sun Apr 14 16:50:07 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
 ---------------------
@@ -22,7 +22,7 @@ Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2007 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -45,9 +45,9 @@ applicable agreement for further details.
 +-----------------------------+--------------+
 ; Simulation Start Time       ; 0 ps         ;
 ; Simulation End Time         ; 1.0 us       ;
-; Simulation Netlist Size     ; 53 nodes     ;
-; Simulation Coverage         ;      83.02 % ;
-; Total Number of Transitions ; 1954         ;
+; Simulation Netlist Size     ; 38 nodes     ;
+; Simulation Coverage         ;      94.74 % ;
+; Total Number of Transitions ; 4694         ;
 ; Simulation Breakpoints      ; 0            ;
 ; Family                      ; Stratix II   ;
 +-----------------------------+--------------+
@@ -94,103 +94,81 @@ Please use Quartus II to view the waveform report data.
 +-----------------------------------------------------+--------------+
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
-; Total coverage as a percentage                      ;      83.02 % ;
-; Total nodes checked                                 ; 53           ;
-; Total output ports checked                          ; 53           ;
-; Total output ports with complete 1/0-value coverage ; 44           ;
-; Total output ports with no 1/0-value coverage       ; 9            ;
-; Total output ports with no 1-value coverage         ; 9            ;
-; Total output ports with no 0-value coverage         ; 9            ;
+; Total coverage as a percentage                      ;      94.74 % ;
+; Total nodes checked                                 ; 38           ;
+; Total output ports checked                          ; 38           ;
+; Total output ports with complete 1/0-value coverage ; 36           ;
+; Total output ports with no 1/0-value coverage       ; 2            ;
+; Total output ports with no 1-value coverage         ; 2            ;
+; Total output ports with no 0-value coverage         ; 2            ;
 +-----------------------------------------------------+--------------+
 
 
 The following table displays output ports that toggle between 1 and 0 during simulation.
-+--------------------------------------------------------------------------------------------------------------+
-; Complete 1/0-Value Coverage                                                                                  ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; Node Name                                   ; Output Port Name                            ; Output Port Type ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; |Carry_Look_Ahead|c1                        ; |Carry_Look_Ahead|c1                        ; out0             ;
-; |Carry_Look_Ahead|c2~1                      ; |Carry_Look_Ahead|c2~1                      ; out0             ;
-; |Carry_Look_Ahead|c2~2                      ; |Carry_Look_Ahead|c2~2                      ; out0             ;
-; |Carry_Look_Ahead|c2                        ; |Carry_Look_Ahead|c2                        ; out0             ;
-; |Carry_Look_Ahead|c3~0                      ; |Carry_Look_Ahead|c3~0                      ; out0             ;
-; |Carry_Look_Ahead|c3~1                      ; |Carry_Look_Ahead|c3~1                      ; out0             ;
-; |Carry_Look_Ahead|c3~2                      ; |Carry_Look_Ahead|c3~2                      ; out0             ;
-; |Carry_Look_Ahead|c3~4                      ; |Carry_Look_Ahead|c3~4                      ; out0             ;
-; |Carry_Look_Ahead|c3~5                      ; |Carry_Look_Ahead|c3~5                      ; out0             ;
-; |Carry_Look_Ahead|c3~6                      ; |Carry_Look_Ahead|c3~6                      ; out0             ;
-; |Carry_Look_Ahead|c3                        ; |Carry_Look_Ahead|c3                        ; out0             ;
-; |Carry_Look_Ahead|Cout~0                    ; |Carry_Look_Ahead|Cout~0                    ; out0             ;
-; |Carry_Look_Ahead|Cout~1                    ; |Carry_Look_Ahead|Cout~1                    ; out0             ;
-; |Carry_Look_Ahead|Cout~2                    ; |Carry_Look_Ahead|Cout~2                    ; out0             ;
-; |Carry_Look_Ahead|Cout~4                    ; |Carry_Look_Ahead|Cout~4                    ; out0             ;
-; |Carry_Look_Ahead|Cout~5                    ; |Carry_Look_Ahead|Cout~5                    ; out0             ;
-; |Carry_Look_Ahead|Cout~7                    ; |Carry_Look_Ahead|Cout~7                    ; out0             ;
-; |Carry_Look_Ahead|Cout~8                    ; |Carry_Look_Ahead|Cout~8                    ; out0             ;
-; |Carry_Look_Ahead|Cout~10                   ; |Carry_Look_Ahead|Cout~10                   ; out0             ;
-; |Carry_Look_Ahead|A[0]                      ; |Carry_Look_Ahead|A[0]                      ; out              ;
-; |Carry_Look_Ahead|A[1]                      ; |Carry_Look_Ahead|A[1]                      ; out              ;
-; |Carry_Look_Ahead|A[2]                      ; |Carry_Look_Ahead|A[2]                      ; out              ;
-; |Carry_Look_Ahead|A[3]                      ; |Carry_Look_Ahead|A[3]                      ; out              ;
-; |Carry_Look_Ahead|B[0]                      ; |Carry_Look_Ahead|B[0]                      ; out              ;
-; |Carry_Look_Ahead|B[1]                      ; |Carry_Look_Ahead|B[1]                      ; out              ;
-; |Carry_Look_Ahead|B[2]                      ; |Carry_Look_Ahead|B[2]                      ; out              ;
-; |Carry_Look_Ahead|B[3]                      ; |Carry_Look_Ahead|B[3]                      ; out              ;
-; |Carry_Look_Ahead|S[0]                      ; |Carry_Look_Ahead|S[0]                      ; pin_out          ;
-; |Carry_Look_Ahead|S[1]                      ; |Carry_Look_Ahead|S[1]                      ; pin_out          ;
-; |Carry_Look_Ahead|S[2]                      ; |Carry_Look_Ahead|S[2]                      ; pin_out          ;
-; |Carry_Look_Ahead|S[3]                      ; |Carry_Look_Ahead|S[3]                      ; pin_out          ;
-; |Carry_Look_Ahead|Cout                      ; |Carry_Look_Ahead|Cout                      ; pin_out          ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|P ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|S ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA4|G ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|S ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|S ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|S ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|S ; out0             ;
-; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G ; out0             ;
-+---------------------------------------------+---------------------------------------------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                        ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; Node Name                                              ; Output Port Name                                       ; Output Port Type ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; |Carry_Look_Ahead|A[0]                                 ; |Carry_Look_Ahead|A[0]                                 ; out              ;
+; |Carry_Look_Ahead|A[1]                                 ; |Carry_Look_Ahead|A[1]                                 ; out              ;
+; |Carry_Look_Ahead|A[2]                                 ; |Carry_Look_Ahead|A[2]                                 ; out              ;
+; |Carry_Look_Ahead|A[3]                                 ; |Carry_Look_Ahead|A[3]                                 ; out              ;
+; |Carry_Look_Ahead|B[0]                                 ; |Carry_Look_Ahead|B[0]                                 ; out              ;
+; |Carry_Look_Ahead|B[1]                                 ; |Carry_Look_Ahead|B[1]                                 ; out              ;
+; |Carry_Look_Ahead|B[2]                                 ; |Carry_Look_Ahead|B[2]                                 ; out              ;
+; |Carry_Look_Ahead|B[3]                                 ; |Carry_Look_Ahead|B[3]                                 ; out              ;
+; |Carry_Look_Ahead|sum[0]                               ; |Carry_Look_Ahead|sum[0]                               ; pin_out          ;
+; |Carry_Look_Ahead|sum[1]                               ; |Carry_Look_Ahead|sum[1]                               ; pin_out          ;
+; |Carry_Look_Ahead|sum[2]                               ; |Carry_Look_Ahead|sum[2]                               ; pin_out          ;
+; |Carry_Look_Ahead|sum[3]                               ; |Carry_Look_Ahead|sum[3]                               ; pin_out          ;
+; |Carry_Look_Ahead|cout                                 ; |Carry_Look_Ahead|cout                                 ; pin_out          ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG3|cout~0 ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG3|cout~0 ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG3|cout   ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG3|cout   ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG2|cout~0 ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG2|cout~0 ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG2|cout   ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG2|cout   ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG1|cout~0 ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG1|cout~0 ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG1|cout   ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG1|cout   ; out0             ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout   ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout   ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|sum~0        ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|sum~0        ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|sum          ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|sum          ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|P            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA3|G            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|sum~0        ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|sum~0        ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|sum          ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|sum          ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|P            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA2|G            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|sum~0        ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|sum~0        ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|sum          ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|sum          ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|P            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA1|G            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|sum~0        ; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|sum~0        ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|sum          ; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|sum          ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|P            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|P            ; out0             ;
+; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|G            ; |Carry_Look_Ahead|Partial_Full_Adder:PFA0|G            ; out0             ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+------------------------------------------------------------------------+
-; Missing 1-Value Coverage                                               ;
-+--------------------------+--------------------------+------------------+
-; Node Name                ; Output Port Name         ; Output Port Type ;
-+--------------------------+--------------------------+------------------+
-; |Carry_Look_Ahead|c1~0   ; |Carry_Look_Ahead|c1~0   ; out0             ;
-; |Carry_Look_Ahead|c2~0   ; |Carry_Look_Ahead|c2~0   ; out0             ;
-; |Carry_Look_Ahead|c2~3   ; |Carry_Look_Ahead|c2~3   ; out0             ;
-; |Carry_Look_Ahead|c3~3   ; |Carry_Look_Ahead|c3~3   ; out0             ;
-; |Carry_Look_Ahead|c3~7   ; |Carry_Look_Ahead|c3~7   ; out0             ;
-; |Carry_Look_Ahead|Cout~3 ; |Carry_Look_Ahead|Cout~3 ; out0             ;
-; |Carry_Look_Ahead|Cout~6 ; |Carry_Look_Ahead|Cout~6 ; out0             ;
-; |Carry_Look_Ahead|Cout~9 ; |Carry_Look_Ahead|Cout~9 ; out0             ;
-; |Carry_Look_Ahead|Cin    ; |Carry_Look_Ahead|Cin    ; out              ;
-+--------------------------+--------------------------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                           ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; Node Name                                              ; Output Port Name                                       ; Output Port Type ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; |Carry_Look_Ahead|cin                                  ; |Carry_Look_Ahead|cin                                  ; out              ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout~0 ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout~0 ; out0             ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+------------------------------------------------------------------------+
-; Missing 0-Value Coverage                                               ;
-+--------------------------+--------------------------+------------------+
-; Node Name                ; Output Port Name         ; Output Port Type ;
-+--------------------------+--------------------------+------------------+
-; |Carry_Look_Ahead|c1~0   ; |Carry_Look_Ahead|c1~0   ; out0             ;
-; |Carry_Look_Ahead|c2~0   ; |Carry_Look_Ahead|c2~0   ; out0             ;
-; |Carry_Look_Ahead|c2~3   ; |Carry_Look_Ahead|c2~3   ; out0             ;
-; |Carry_Look_Ahead|c3~3   ; |Carry_Look_Ahead|c3~3   ; out0             ;
-; |Carry_Look_Ahead|c3~7   ; |Carry_Look_Ahead|c3~7   ; out0             ;
-; |Carry_Look_Ahead|Cout~3 ; |Carry_Look_Ahead|Cout~3 ; out0             ;
-; |Carry_Look_Ahead|Cout~6 ; |Carry_Look_Ahead|Cout~6 ; out0             ;
-; |Carry_Look_Ahead|Cout~9 ; |Carry_Look_Ahead|Cout~9 ; out0             ;
-; |Carry_Look_Ahead|Cin    ; |Carry_Look_Ahead|Cin    ; out              ;
-+--------------------------+--------------------------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                           ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; Node Name                                              ; Output Port Name                                       ; Output Port Type ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
+; |Carry_Look_Ahead|cin                                  ; |Carry_Look_Ahead|cin                                  ; out              ;
+; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout~0 ; |Carry_Look_Ahead|Carry_lookahead_Generator:CG0|cout~0 ; out0             ;
++--------------------------------------------------------+--------------------------------------------------------+------------------+
 
 
 +---------------------+
@@ -205,18 +183,19 @@ The following table displays output ports that do not toggle to 0 during simulat
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus II Simulator
-    Info: Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
-    Info: Processing started: Mon Apr 22 00:30:42 2019
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sun Apr 14 16:50:06 2024
 Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off Q4 -c Q4
-Info: Using vector source file "D:/學校/課程資料/大二下/數位系統/Q4/Q4.vwf"
+Info: Using vector source file "C:/users/elijah/Desktop/VHDL/Q4/Q4.vwf"
 Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info: Simulation partitioned into 1 sub-simulations
-Info: Simulation coverage is      83.02 %
-Info: Number of transitions in simulation is 1954
+Info: Simulation coverage is      94.74 %
+Info: Number of transitions in simulation is 4694
 Info: Quartus II Simulator was successful. 0 errors, 0 warnings
-    Info: Allocated 151 megabytes of memory during processing
-    Info: Processing ended: Mon Apr 22 00:30:43 2019
+    Info: Peak virtual memory: 94 megabytes
+    Info: Processing ended: Sun Apr 14 16:50:07 2024
     Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

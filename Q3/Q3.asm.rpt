@@ -1,6 +1,6 @@
 Assembler report for Q3
-Sun Apr 21 23:15:54 2019
-Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+Sun Apr 14 15:27:51 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
 ---------------------
@@ -9,14 +9,17 @@ Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
   1. Legal Notice
   2. Assembler Summary
   3. Assembler Settings
-  4. Assembler Messages
+  4. Assembler Generated Files
+  5. Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q3/Q3.sof
+  6. Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q3/Q3.pof
+  7. Assembler Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2007 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -35,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Apr 21 23:15:54 2019 ;
+; Assembler Status      ; Successful - Sun Apr 14 15:27:51 2024 ;
 ; Revision Name         ; Q3                                    ;
 ; Top-level Entity Name ; Q3                                    ;
 ; Family                ; Stratix II                            ;
@@ -49,16 +52,16 @@ applicable agreement for further details.
 ; Option                                                                      ; Setting  ; Default Value ;
 +-----------------------------------------------------------------------------+----------+---------------+
 ; Use smart compilation                                                       ; Off      ; Off           ;
-; Maximum processors allowed for parallel compilation                         ; 1        ; 1             ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation  ; On       ; On            ;
+; Enable compact report table                                                 ; Off      ; Off           ;
 ; Generate compressed bitstreams                                              ; On       ; On            ;
 ; Compression mode                                                            ; Off      ; Off           ;
 ; Clock source for configuration device                                       ; Internal ; Internal      ;
 ; Clock frequency of the configuration device                                 ; 10 MHZ   ; 10 MHz        ;
 ; Divide clock frequency by                                                   ; 1        ; 1             ;
-; JTAG user code for target device                                            ; Ffffffff ; Ffffffff      ;
 ; Auto user code                                                              ; Off      ; Off           ;
+; Use configuration device                                                    ; On       ; On            ;
 ; Configuration device                                                        ; Auto     ; Auto          ;
-; JTAG user code for configuration device                                     ; Ffffffff ; Ffffffff      ;
 ; Configuration device auto user code                                         ; Off      ; Off           ;
 ; Generate Tabular Text File (.ttf) For Target Device                         ; Off      ; Off           ;
 ; Generate Raw Binary File (.rbf) For Target Device                           ; Off      ; Off           ;
@@ -76,18 +79,53 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
++----------------------------------------+
+; Assembler Generated Files              ;
++----------------------------------------+
+; File Name                              ;
++----------------------------------------+
+; C:/users/elijah/Desktop/VHDL/Q3/Q3.sof ;
+; C:/users/elijah/Desktop/VHDL/Q3/Q3.pof ;
++----------------------------------------+
+
+
++------------------------------------------------------------------+
+; Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q3/Q3.sof ;
++----------------+-------------------------------------------------+
+; Option         ; Setting                                         ;
++----------------+-------------------------------------------------+
+; Device         ; EP2S15F484C3                                    ;
+; JTAG usercode  ; 0xFFFFFFFF                                      ;
+; Checksum       ; 0x002756FF                                      ;
++----------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q3/Q3.pof ;
++--------------------+---------------------------------------------+
+; Option             ; Setting                                     ;
++--------------------+---------------------------------------------+
+; Device             ; EPC16                                       ;
+; JTAG usercode      ; 0xFFFFFFFF                                  ;
+; Checksum           ; 0x1EF659AE                                  ;
+; Compression Ratio  ; 3                                           ;
++--------------------+---------------------------------------------+
+
+
 +--------------------+
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus II Assembler
-    Info: Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
-    Info: Processing started: Sun Apr 21 23:15:54 2019
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sun Apr 14 15:27:49 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Q3 -c Q3
-Warning: Can't generate programming files because you are currently using the Quartus II software in Evaluation Mode
-Info: Quartus II Assembler was successful. 0 errors, 1 warning
-    Info: Allocated 194 megabytes of memory during processing
-    Info: Processing ended: Sun Apr 21 23:15:54 2019
-    Info: Elapsed time: 00:00:00
+Info: Writing out detailed assembly data for power analysis
+Info: Assembler is generating device programming files
+Info: Quartus II Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 184 megabytes
+    Info: Processing ended: Sun Apr 14 15:27:51 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

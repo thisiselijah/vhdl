@@ -20,42 +20,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-Partial_Full_Adder
-# storage
-db|Q4.(1).cnf
-db|Q4.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-partial_full_adder.vhd
-ae5df71aa50f1b667ea9ed81082e75e
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-Partial_Full_Adder:PFA1
-Partial_Full_Adder:PFA2
-Partial_Full_Adder:PFA3
-Partial_Full_Adder:PFA4
-}
-# lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 Carry_Look_Ahead
 # storage
 db|Q4.(0).cnf
@@ -67,7 +31,7 @@ ON
 # case_insensitive
 # source_file
 carry_look_ahead.vhd
-e63118852bd9ecb3cf9cca2d37578f9
+0ae279daa607551a9279bbbc4745678
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -83,8 +47,80 @@ ON
 |
 }
 # lmf
-|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+0
+# macro_sequence
+
+# end
+# entity
+Partial_Full_Adder
+# storage
+db|Q4.(1).cnf
+db|Q4.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+partial_full_adder.vhd
+5514c2b117632ef149a01997a25888fd
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Partial_Full_Adder:PFA0
+Partial_Full_Adder:PFA1
+Partial_Full_Adder:PFA2
+Partial_Full_Adder:PFA3
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+0
+# macro_sequence
+
+# end
+# entity
+Carry_lookahead_Generator
+# storage
+db|Q4.(2).cnf
+db|Q4.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+carry_lookahead_generator.vhd
+2e6d773fc82ce6b99db52c7f4102f1a
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Carry_lookahead_Generator:CG0
+Carry_lookahead_Generator:CG1
+Carry_lookahead_Generator:CG2
+Carry_lookahead_Generator:CG3
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+0
 # macro_sequence
 
 # end

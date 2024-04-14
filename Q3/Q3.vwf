@@ -5,7 +5,7 @@ the Block Editor! File corruption is VERY likely to occur.
 */
 
 /*
-Copyright (C) 1991-2007 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -52,7 +52,7 @@ SIGNAL("B")
 	PARENT = "";
 }
 
-SIGNAL("Clk")
+SIGNAL("clk")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -88,7 +88,7 @@ SIGNAL("Q")
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
+	DIRECTION = BIDIR;
 	PARENT = "";
 }
 
@@ -113,14 +113,14 @@ TRANSITION_LIST("B")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 100;
-			LEVEL 0 FOR 5.0;
-			LEVEL 1 FOR 5.0;
+			REPEAT = 50;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 10.0;
 		}
 	}
 }
 
-TRANSITION_LIST("Clk")
+TRANSITION_LIST("clk")
 {
 	NODE
 	{
@@ -139,12 +139,7 @@ TRANSITION_LIST("IN1")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 50;
-			LEVEL 0 FOR 10.0;
-			LEVEL 1 FOR 10.0;
-		}
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -153,12 +148,7 @@ TRANSITION_LIST("IN2")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 100;
-			LEVEL 0 FOR 5.0;
-			LEVEL 1 FOR 5.0;
-		}
+		LEVEL 1 FOR 1000.0;
 	}
 }
 
@@ -167,7 +157,7 @@ TRANSITION_LIST("Q")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL Z FOR 1000.0;
 	}
 }
 
@@ -191,7 +181,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Clk";
+	CHANNEL = "clk";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;

@@ -1,4 +1,4 @@
- -- Copyright (C) 1991-2007 Altera Corporation
+ -- Copyright (C) 1991-2010 Altera Corporation
  -- Your use of Altera Corporation's design tools, logic functions 
  -- and other software and tools, and its AMPP partner logic 
  -- functions, and any output files from any of the foregoing 
@@ -23,7 +23,6 @@
  ---------------------------------------------------------------------------------
  -- NC            : No Connect. This pin has no internal connection to the device.
  -- DNU           : Do Not Use. This pin MUST NOT be connected.
- -- VCCPGM        : Dedicated power pin for configuration, which MUST be connected to 1.8V, 2.5V or 3.0V depending on the needs of the configuration device.
  -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
  -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
  --                 of its bank.
@@ -51,10 +50,9 @@
  --					This pin should be connected to GND. It may also be connected  to a
  --					valid signal  on the board  (low, high, or toggling)  if that signal
  --					is required for a different revision of the design.
- -- GND*          : Unused  I/O  pin.   For transceiver I/O banks (Bank 13, 14, 15, 16 and 17),
- --           	    connect each pin marked GND* either individually through a 10 kohm resistor
- --           	    to GND or tie all pins together and connect through a single 10 kohm resistor
- --           	    to GND.
+ -- GND*          : Unused  I/O  pin.   For transceiver I/O banks, connect each pin marked GND*
+ --           	    either individually through a 10k Ohm resistor to GND or tie all pins
+ --           	    together and connect through a single 10k Ohm resistor to GND.
  --           	    For non-transceiver I/O banks, connect each pin marked GND* directly to GND
  --           	    or leave it unconnected.
  -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
@@ -70,7 +68,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 CHIP  "Q3"  ASSIGNED TO AN: EP2S15F484C3
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -136,7 +134,7 @@ GND                          : AB14      : gnd    :                   :         
 GND*                         : AB15      :        :                   :         : 8         :                
 GND*                         : AB16      :        :                   :         : 8         :                
 GND*                         : AB17      :        :                   :         : 8         :                
-GND*                         : AB18      :        :                   :         : 8         :                
+IN2                          : AB18      : input  : 3.3-V LVTTL       :         : 8         : N              
 TRST                         : AB19      : input  :                   :         : 8         :                
 VCCIO8                       : AB20      : power  :                   : 3.3V    : 8         :                
 TDI                          : AB21      : input  :                   :         : 8         :                
@@ -204,7 +202,7 @@ VREFB3                       : D16       : power  :                   :         
 GND*                         : D17       :        :                   :         : 3         :                
 GND*                         : D18       :        :                   :         : 3         :                
 DCLK                         : D19       :        :                   :         : 3         :                
-GND*                         : D20       :        :                   :         : 3         :                
+A                            : D20       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : D21       :        :                   :         : 2         :                
 GND*                         : D22       :        :                   :         : 2         :                
 GND*                         : E1        :        :                   :         : 5         :                
@@ -433,8 +431,8 @@ GND*                         : R3        :        :                   :         
 GND*                         : R4        :        :                   :         : 6         :                
 GND*                         : R5        :        :                   :         : 6         :                
 GND*                         : R6        :        :                   :         : 6         :                
-GND*                         : R7        :        :                   :         : 6         :                
-GND*                         : R8        :        :                   :         : 6         :                
+clk                          : R7        : input  : 3.3-V LVTTL       :         : 6         : N              
+Q                            : R8        : bidir  : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : R9        :        :                   :         : 7         :                
 GND                          : R10       : gnd    :                   :         :           :                
 VCC_PLL6_OUT                 : R11       : power  :                   : 3.3V    : 10        :                
@@ -442,7 +440,7 @@ VCCA_PLL6                    : R12       : power  :                   : 1.2V    
 VCCPD8                       : R13       : power  :                   : 3.3V    : 8         :                
 GND*                         : R14       :        :                   :         : 8         :                
 GND*                         : R15       :        :                   :         : 8         :                
-A                            : R16       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : R16       :        :                   :         : 1         :                
 GND*                         : R17       :        :                   :         : 1         :                
 GND*                         : R18       :        :                   :         : 1         :                
 GND*                         : R19       :        :                   :         : 1         :                
@@ -484,7 +482,7 @@ GND*                         : U10       :        :                   :         
 VCCD_PLL6                    : U11       : power  :                   : 1.2V    :           :                
 GND*                         : U12       :        :                   :         : 8         :                
 GND*                         : U13       :        :                   :         : 8         :                
-Q                            : U14       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : U14       :        :                   :         : 8         :                
 GND*                         : U15       :        :                   :         : 8         :                
 GND*                         : U16       :        :                   :         : 8         :                
 GND*                         : U17       :        :                   :         : 1         :                
@@ -506,7 +504,7 @@ GND*                         : V10       :        :                   :         
 GND*                         : V11       :        :                   :         : 8         :                
 GND*                         : V12       :        :                   :         : 8         :                
 GND*                         : V13       :        :                   :         : 8         :                
-IN1                          : V14       : input  : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : V14       :        :                   :         : 8         :                
 GND*                         : V15       :        :                   :         : 8         :                
 GND*                         : V16       :        :                   :         : 8         :                
 VCCSEL                       : V17       :        :                   :         : 8         :                
@@ -527,14 +525,14 @@ GND*                         : W9        :        :                   :         
 GND*                         : W10       :        :                   :         : 7         :                
 GND*                         : W11       :        :                   :         : 8         :                
 GND*                         : W12       :        :                   :         : 8         :                
-GND*                         : W13       :        :                   :         : 8         :                
+IN1                          : W13       : input  : 3.3-V LVTTL       :         : 8         : N              
 GND*                         : W14       :        :                   :         : 8         :                
-Clk                          : W15       : input  : 3.3-V LVTTL       :         : 8         : N              
-IN2                          : W16       : input  : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : W15       :        :                   :         : 8         :                
+GND*                         : W16       :        :                   :         : 8         :                
 GND*                         : W17       :        :                   :         : 8         :                
 nCONFIG                      : W18       :        :                   :         : 8         :                
 GND*                         : W19       :        :                   :         : 1         :                
-GND*                         : W20       :        :                   :         : 1         :                
+B                            : W20       : input  : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : W21       :        :                   :         : 1         :                
 GND*                         : W22       :        :                   :         : 1         :                
 GND*                         : Y1        :        :                   :         : 6         :                
@@ -557,5 +555,5 @@ GND*                         : Y17       :        :                   :         
 GND*                         : Y18       :        :                   :         : 8         :                
 VREFB8                       : Y19       : power  :                   :         : 8         :                
 GND*                         : Y20       :        :                   :         : 8         :                
-B                            : Y21       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : Y21       :        :                   :         : 1         :                
 GND*                         : Y22       :        :                   :         : 1         :                

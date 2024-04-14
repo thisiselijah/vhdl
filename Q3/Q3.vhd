@@ -1,29 +1,31 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity Q3 is port(
-
-	IN1:in bit;
-	IN2:in bit;
-
-	A:in bit;
-	B:in bit;
-
-	Clk:in std_logic;
-	Q:out bit);
+entity Q3 is 
+	port(A, B, IN1, IN2 : in std_logic;
+		 clk : in std_logic;
+		 Q : inout std_logic
+		);
 
 end Q3;
 
-architecture a of Q3 is
+architecture bahavioral of Q3 is
+signal s, D : std_logic;  
 begin
-	process(IN1,IN2,A,B,CLK)
+	s<=A and B;
+process(s)
 begin
-	if Clk' event and Clk = '1' then
-		if (A and B) = '0' then
-		Q<=IN1;
-		else
-		Q<=IN2;
-		end if;
+	if s = '0' then
+		D<=IN1;
+	else D<=IN2;
 	end if;
 end process;
-end a;
+process(clk)
+begin
+	if rising_edge(clk) then
+		Q<=D;
+	else Q<=Q;
+	end if;
+end process;
+
+end bahavioral;

@@ -31,7 +31,7 @@ ON
 # case_insensitive
 # source_file
 q1.vhd
-775557ae328155f5da28582f2185433b
+4dafa56253ac26c3e68d1fab9f7f8c4
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -48,12 +48,12 @@ ON
 }
 # lmf
 |altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
+0
 # macro_sequence
 
 # end
 # entity
-full_add
+FA
 # storage
 db|Q1.(1).cnf
 db|Q1.(1).cnf
@@ -64,7 +64,7 @@ ON
 # case_insensitive
 # source_file
 q1.vhd
-775557ae328155f5da28582f2185433b
+4dafa56253ac26c3e68d1fab9f7f8c4
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -77,16 +77,14 @@ AUTO_ROM_RECOGNITION
 ON
 }
 # hierarchies {
-full_add:\G2:5:FA1
-full_add:\G2:4:FA1
-full_add:\G1:3:FA
-full_add:\G1:2:FA
-full_add:\G1:1:FA
-full_add:\G1:0:FA
+FA:FA0
+FA:FA1
+FA:FA2
+FA:FA3
 }
 # lmf
 |altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
+0
 # macro_sequence
 
 # end

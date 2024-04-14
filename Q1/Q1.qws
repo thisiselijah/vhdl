@@ -29,5 +29,5 @@ IsActiveChildFrame=False
 ptn_Child1=StateMap
 [ProjectWorkspace.Frames.ChildFrames.Document-3.ViewFrame-0.StateMap]
 AFC_SIM_AP_NAME=Q1
-AFC_PROJ_DB_PATH=C:/Users/kryst/Desktop/大二考古/數位系統/mid and final/Q1/db/Q1.quartus_db
+AFC_PROJ_DB_PATH=C:/users/elijah/Desktop/VHDL/Q1/db/Q1.quartus_db
 AFC_IN_REPORT=False

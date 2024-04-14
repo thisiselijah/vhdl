@@ -1,65 +1,98 @@
 |Carry_Look_Ahead
-A[0] => Partial_Full_Adder:PFA1.A
-A[1] => Partial_Full_Adder:PFA2.A
-A[2] => Partial_Full_Adder:PFA3.A
-A[3] => Partial_Full_Adder:PFA4.A
-B[0] => Partial_Full_Adder:PFA1.B
-B[1] => Partial_Full_Adder:PFA2.B
-B[2] => Partial_Full_Adder:PFA3.B
-B[3] => Partial_Full_Adder:PFA4.B
-Cin => c1.IN1
-Cin => c2.IN1
-Cin => c3.IN1
-Cin => Cout.IN1
-Cin => Partial_Full_Adder:PFA1.Cin
-S[0] <= Partial_Full_Adder:PFA1.S
-S[1] <= Partial_Full_Adder:PFA2.S
-S[2] <= Partial_Full_Adder:PFA3.S
-S[3] <= Partial_Full_Adder:PFA4.S
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+A[0] => Partial_Full_Adder:PFA0.A
+A[1] => Partial_Full_Adder:PFA1.A
+A[2] => Partial_Full_Adder:PFA2.A
+A[3] => Partial_Full_Adder:PFA3.A
+B[0] => Partial_Full_Adder:PFA0.B
+B[1] => Partial_Full_Adder:PFA1.B
+B[2] => Partial_Full_Adder:PFA2.B
+B[3] => Partial_Full_Adder:PFA3.B
+cin => Partial_Full_Adder:PFA0.cin
+cin => Carry_lookahead_Generator:CG0.cin
+sum[0] <= Partial_Full_Adder:PFA0.sum
+sum[1] <= Partial_Full_Adder:PFA1.sum
+sum[2] <= Partial_Full_Adder:PFA2.sum
+sum[3] <= Partial_Full_Adder:PFA3.sum
+cout <= Carry_lookahead_Generator:CG3.cout
+
+
+|Carry_Look_Ahead|Partial_Full_Adder:PFA0
+A => sum~0.IN0
+A => P~0.IN0
+A => G~0.IN0
+B => sum~0.IN1
+B => P~0.IN1
+B => G~0.IN1
+cin => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+G <= G~0.DB_MAX_OUTPUT_PORT_TYPE
+P <= P~0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Carry_Look_Ahead|Partial_Full_Adder:PFA1
-A => S.IN0
-A => G.IN0
-B => S.IN1
-B => G.IN1
-Cin => S.IN1
-S <= S.DB_MAX_OUTPUT_PORT_TYPE
-P <= S.DB_MAX_OUTPUT_PORT_TYPE
-G <= G.DB_MAX_OUTPUT_PORT_TYPE
+A => sum~0.IN0
+A => P~0.IN0
+A => G~0.IN0
+B => sum~0.IN1
+B => P~0.IN1
+B => G~0.IN1
+cin => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+G <= G~0.DB_MAX_OUTPUT_PORT_TYPE
+P <= P~0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Carry_Look_Ahead|Partial_Full_Adder:PFA2
-A => S.IN0
-A => G.IN0
-B => S.IN1
-B => G.IN1
-Cin => S.IN1
-S <= S.DB_MAX_OUTPUT_PORT_TYPE
-P <= S.DB_MAX_OUTPUT_PORT_TYPE
-G <= G.DB_MAX_OUTPUT_PORT_TYPE
+A => sum~0.IN0
+A => P~0.IN0
+A => G~0.IN0
+B => sum~0.IN1
+B => P~0.IN1
+B => G~0.IN1
+cin => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+G <= G~0.DB_MAX_OUTPUT_PORT_TYPE
+P <= P~0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Carry_Look_Ahead|Partial_Full_Adder:PFA3
-A => S.IN0
-A => G.IN0
-B => S.IN1
-B => G.IN1
-Cin => S.IN1
-S <= S.DB_MAX_OUTPUT_PORT_TYPE
-P <= S.DB_MAX_OUTPUT_PORT_TYPE
-G <= G.DB_MAX_OUTPUT_PORT_TYPE
+A => sum~0.IN0
+A => P~0.IN0
+A => G~0.IN0
+B => sum~0.IN1
+B => P~0.IN1
+B => G~0.IN1
+cin => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+G <= G~0.DB_MAX_OUTPUT_PORT_TYPE
+P <= P~0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Carry_Look_Ahead|Partial_Full_Adder:PFA4
-A => S.IN0
-A => G.IN0
-B => S.IN1
-B => G.IN1
-Cin => S.IN1
-S <= S.DB_MAX_OUTPUT_PORT_TYPE
-P <= S.DB_MAX_OUTPUT_PORT_TYPE
-G <= G.DB_MAX_OUTPUT_PORT_TYPE
+|Carry_Look_Ahead|Carry_lookahead_Generator:CG0
+G => cout~1.IN1
+P => cout~0.IN0
+cin => cout~0.IN1
+cout <= cout~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Carry_lookahead_Generator:CG1
+G => cout~1.IN1
+P => cout~0.IN0
+cin => cout~0.IN1
+cout <= cout~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Carry_lookahead_Generator:CG2
+G => cout~1.IN1
+P => cout~0.IN0
+cin => cout~0.IN1
+cout <= cout~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Carry_Look_Ahead|Carry_lookahead_Generator:CG3
+G => cout~1.IN1
+P => cout~0.IN0
+cin => cout~0.IN1
+cout <= cout~1.DB_MAX_OUTPUT_PORT_TYPE
 
 

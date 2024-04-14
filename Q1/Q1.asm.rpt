@@ -1,5 +1,5 @@
 Assembler report for Q1
-Mon Mar 11 10:01:35 2024
+Sun Apr 14 01:23:45 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.sof
-  6. Assembler Device Options: C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.pof
+  5. Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q1/Q1.sof
+  6. Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q1/Q1.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Mar 11 10:01:35 2024 ;
+; Assembler Status      ; Successful - Sun Apr 14 01:23:45 2024 ;
 ; Revision Name         ; Q1                                    ;
 ; Top-level Entity Name ; Q1                                    ;
 ; Family                ; Stratix II                            ;
@@ -79,37 +79,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+------------------------------------------------------------------+
-; Assembler Generated Files                                        ;
-+------------------------------------------------------------------+
-; File Name                                                        ;
-+------------------------------------------------------------------+
-; C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.sof ;
-; C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.pof ;
-+------------------------------------------------------------------+
++----------------------------------------+
+; Assembler Generated Files              ;
++----------------------------------------+
+; File Name                              ;
++----------------------------------------+
+; C:/users/elijah/Desktop/VHDL/Q1/Q1.sof ;
+; C:/users/elijah/Desktop/VHDL/Q1/Q1.pof ;
++----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.sof ;
-+----------------+---------------------------------------------------------------------------+
-; Option         ; Setting                                                                   ;
-+----------------+---------------------------------------------------------------------------+
-; Device         ; EP2S15F484C3                                                              ;
-; JTAG usercode  ; 0xFFFFFFFF                                                                ;
-; Checksum       ; 0x002784A2                                                                ;
-+----------------+---------------------------------------------------------------------------+
++------------------------------------------------------------------+
+; Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q1/Q1.sof ;
++----------------+-------------------------------------------------+
+; Option         ; Setting                                         ;
++----------------+-------------------------------------------------+
+; Device         ; EP2S15F484C3                                    ;
+; JTAG usercode  ; 0xFFFFFFFF                                      ;
+; Checksum       ; 0x0027794C                                      ;
++----------------+-------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/kryst/Desktop/σ/计╰参/mid and final/Q1/Q1.pof ;
-+--------------------+-----------------------------------------------------------------------+
-; Option             ; Setting                                                               ;
-+--------------------+-----------------------------------------------------------------------+
-; Device             ; EPC16                                                                 ;
-; JTAG usercode      ; 0xFFFFFFFF                                                            ;
-; Checksum           ; 0x1EF5D0DA                                                            ;
-; Compression Ratio  ; 3                                                                     ;
-+--------------------+-----------------------------------------------------------------------+
++------------------------------------------------------------------+
+; Assembler Device Options: C:/users/elijah/Desktop/VHDL/Q1/Q1.pof ;
++--------------------+---------------------------------------------+
+; Option             ; Setting                                     ;
++--------------------+---------------------------------------------+
+; Device             ; EPC16                                       ;
+; JTAG usercode      ; 0xFFFFFFFF                                  ;
+; Checksum           ; 0x1EF621E6                                  ;
+; Compression Ratio  ; 3                                           ;
++--------------------+---------------------------------------------+
 
 
 +--------------------+
@@ -118,14 +118,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Mon Mar 11 10:01:34 2024
+    Info: Processing started: Sun Apr 14 01:23:43 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Q1 -c Q1
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 246 megabytes
-    Info: Processing ended: Mon Mar 11 10:01:36 2024
+    Info: Peak virtual memory: 186 megabytes
+    Info: Processing ended: Sun Apr 14 01:23:45 2024
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

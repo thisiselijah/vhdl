@@ -1,6 +1,6 @@
 Fitter report for Q3
-Sun Apr 21 23:15:52 2019
-Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+Sun Apr 14 15:27:46 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
 ---------------------
@@ -9,41 +9,43 @@ Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
   1. Legal Notice
   2. Fitter Summary
   3. Fitter Settings
-  4. Pin-Out File
-  5. Fitter Resource Usage Summary
-  6. Input Pins
-  7. Output Pins
-  8. I/O Bank Usage
-  9. All Package Pins
- 10. Output Pin Default Load For Reported TCO
- 11. Fitter Resource Utilization by Entity
- 12. Delay Chain Summary
- 13. Pad To Core Delay Chain Fanout
- 14. Control Signals
- 15. Non-Global High Fan-Out Signals
- 16. Interconnect Usage Summary
- 17. LAB Logic Elements
- 18. LAB-wide Signals
- 19. LAB Signals Sourced
- 20. LAB Signals Sourced Out
- 21. LAB Distinct Inputs
- 22. I/O Rules Summary
- 23. I/O Rules Details
- 24. I/O Rules Matrix
- 25. Fitter Device Options
- 26. Operating Settings and Conditions
- 27. Advanced Data - General
- 28. Advanced Data - Placement Preparation
- 29. Advanced Data - Placement
- 30. Advanced Data - Routing
- 31. Fitter Messages
+  4. Parallel Compilation
+  5. I/O Assignment Warnings
+  6. Incremental Compilation Preservation Summary
+  7. Incremental Compilation Partition Settings
+  8. Incremental Compilation Placement Preservation
+  9. Pin-Out File
+ 10. Fitter Resource Usage Summary
+ 11. Input Pins
+ 12. Bidir Pins
+ 13. I/O Bank Usage
+ 14. All Package Pins
+ 15. Output Pin Default Load For Reported TCO
+ 16. Fitter Resource Utilization by Entity
+ 17. Delay Chain Summary
+ 18. Pad To Core Delay Chain Fanout
+ 19. Control Signals
+ 20. Non-Global High Fan-Out Signals
+ 21. Interconnect Usage Summary
+ 22. LAB Logic Elements
+ 23. LAB-wide Signals
+ 24. LAB Signals Sourced
+ 25. LAB Signals Sourced Out
+ 26. LAB Distinct Inputs
+ 27. I/O Rules Summary
+ 28. I/O Rules Details
+ 29. I/O Rules Matrix
+ 30. Fitter Device Options
+ 31. Operating Settings and Conditions
+ 32. Estimated Delay Added for Hold Timing
+ 33. Fitter Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2007 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -62,8 +64,8 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Fitter Summary                                                               ;
 +-------------------------------+----------------------------------------------+
-; Fitter Status                 ; Successful - Sun Apr 21 23:15:52 2019        ;
-; Quartus II Version            ; 7.2 Build 207 03/18/2008 SP 3 SJ Web Edition ;
+; Fitter Status                 ; Successful - Sun Apr 14 15:27:46 2024        ;
+; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                 ; Q3                                           ;
 ; Top-level Entity Name         ; Q3                                           ;
 ; Family                        ; Stratix II                                   ;
@@ -82,124 +84,193 @@ applicable agreement for further details.
 +-------------------------------+----------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Settings                                                                                                                         ;
-+-----------------------------------------------------------------------+--------------------------------+--------------------------------+
-; Option                                                                ; Setting                        ; Default Value                  ;
-+-----------------------------------------------------------------------+--------------------------------+--------------------------------+
-; Device                                                                ; AUTO                           ;                                ;
-; Fit Attempts to Skip                                                  ; 0                              ; 0.0                            ;
-; Use smart compilation                                                 ; Off                            ; Off                            ;
-; Maximum processors allowed for parallel compilation                   ; 1                              ; 1                              ;
-; Use TimeQuest Timing Analyzer                                         ; Off                            ; Off                            ;
-; Router Timing Optimization Level                                      ; Normal                         ; Normal                         ;
-; Placement Effort Multiplier                                           ; 1.0                            ; 1.0                            ;
-; Router Effort Multiplier                                              ; 1.0                            ; 1.0                            ;
-; Always Enable Input Buffers                                           ; Off                            ; Off                            ;
-; Optimize Hold Timing                                                  ; IO Paths and Minimum TPD Paths ; IO Paths and Minimum TPD Paths ;
-; Optimize Fast-Corner Timing                                           ; Off                            ; Off                            ;
-; Equivalent RAM and MLAB Paused Read Capabilities                      ; Care                           ; Care                           ;
-; PowerPlay Power Optimization                                          ; Normal compilation             ; Normal compilation             ;
-; Optimize Timing                                                       ; Normal compilation             ; Normal compilation             ;
-; Optimize IOC Register Placement for Timing                            ; On                             ; On                             ;
-; Limit to One Fitting Attempt                                          ; Off                            ; Off                            ;
-; Final Placement Optimizations                                         ; Automatically                  ; Automatically                  ;
-; Fitter Aggressive Routability Optimizations                           ; Automatically                  ; Automatically                  ;
-; Fitter Initial Placement Seed                                         ; 1                              ; 1                              ;
-; PCI I/O                                                               ; Off                            ; Off                            ;
-; Weak Pull-Up Resistor                                                 ; Off                            ; Off                            ;
-; Enable Bus-Hold Circuitry                                             ; Off                            ; Off                            ;
-; Auto Global Memory Control Signals                                    ; Off                            ; Off                            ;
-; Auto Packed Registers -- Stratix II/II GX/III Cyclone II/III Arria GX ; Auto                           ; Auto                           ;
-; Auto Delay Chains                                                     ; On                             ; On                             ;
-; Auto Merge PLLs                                                       ; On                             ; On                             ;
-; Perform Physical Synthesis for Combinational Logic for Fitting        ; Off                            ; Off                            ;
-; Perform Physical Synthesis for Combinational Logic for Performance    ; Off                            ; Off                            ;
-; Perform Register Duplication for Performance                          ; Off                            ; Off                            ;
-; Perform Logic to Memory Mapping for Fitting                           ; Off                            ; Off                            ;
-; Perform Register Retiming for Performance                             ; Off                            ; Off                            ;
-; Perform Asynchronous Signal Pipelining                                ; Off                            ; Off                            ;
-; Fitter Effort                                                         ; Auto Fit                       ; Auto Fit                       ;
-; Physical Synthesis Effort Level                                       ; Normal                         ; Normal                         ;
-; Logic Cell Insertion - Logic Duplication                              ; Auto                           ; Auto                           ;
-; Auto Register Duplication                                             ; Auto                           ; Auto                           ;
-; Auto Global Clock                                                     ; On                             ; On                             ;
-; Auto Global Register Control Signals                                  ; On                             ; On                             ;
-; Stop After Congestion Map Generation                                  ; Off                            ; Off                            ;
-; Save Intermediate Fitting Results                                     ; Off                            ; Off                            ;
-+-----------------------------------------------------------------------+--------------------------------+--------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Settings                                                                                                                              ;
++----------------------------------------------------------------------------+--------------------------------+--------------------------------+
+; Option                                                                     ; Setting                        ; Default Value                  ;
++----------------------------------------------------------------------------+--------------------------------+--------------------------------+
+; Device                                                                     ; AUTO                           ;                                ;
+; Fit Attempts to Skip                                                       ; 0                              ; 0.0                            ;
+; Use smart compilation                                                      ; Off                            ; Off                            ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                             ; On                             ;
+; Enable compact report table                                                ; Off                            ; Off                            ;
+; Use TimeQuest Timing Analyzer                                              ; Off                            ; Off                            ;
+; Router Timing Optimization Level                                           ; Normal                         ; Normal                         ;
+; Placement Effort Multiplier                                                ; 1.0                            ; 1.0                            ;
+; Router Effort Multiplier                                                   ; 1.0                            ; 1.0                            ;
+; Always Enable Input Buffers                                                ; Off                            ; Off                            ;
+; Optimize Hold Timing                                                       ; IO Paths and Minimum TPD Paths ; IO Paths and Minimum TPD Paths ;
+; Optimize Multi-Corner Timing                                               ; Off                            ; Off                            ;
+; PowerPlay Power Optimization                                               ; Normal compilation             ; Normal compilation             ;
+; Optimize Timing                                                            ; Normal compilation             ; Normal compilation             ;
+; Optimize Timing for ECOs                                                   ; Off                            ; Off                            ;
+; Regenerate full fit report during ECO compiles                             ; Off                            ; Off                            ;
+; Optimize IOC Register Placement for Timing                                 ; On                             ; On                             ;
+; Limit to One Fitting Attempt                                               ; Off                            ; Off                            ;
+; Final Placement Optimizations                                              ; Automatically                  ; Automatically                  ;
+; Fitter Aggressive Routability Optimizations                                ; Automatically                  ; Automatically                  ;
+; Fitter Initial Placement Seed                                              ; 1                              ; 1                              ;
+; PCI I/O                                                                    ; Off                            ; Off                            ;
+; Weak Pull-Up Resistor                                                      ; Off                            ; Off                            ;
+; Enable Bus-Hold Circuitry                                                  ; Off                            ; Off                            ;
+; Auto Global Memory Control Signals                                         ; Off                            ; Off                            ;
+; Auto Packed Registers                                                      ; Auto                           ; Auto                           ;
+; Auto Delay Chains                                                          ; On                             ; On                             ;
+; Auto Merge PLLs                                                            ; On                             ; On                             ;
+; Perform Physical Synthesis for Combinational Logic for Fitting             ; Off                            ; Off                            ;
+; Perform Physical Synthesis for Combinational Logic for Performance         ; Off                            ; Off                            ;
+; Perform Register Duplication for Performance                               ; Off                            ; Off                            ;
+; Perform Logic to Memory Mapping for Fitting                                ; Off                            ; Off                            ;
+; Perform Register Retiming for Performance                                  ; Off                            ; Off                            ;
+; Perform Asynchronous Signal Pipelining                                     ; Off                            ; Off                            ;
+; Fitter Effort                                                              ; Auto Fit                       ; Auto Fit                       ;
+; Physical Synthesis Effort Level                                            ; Normal                         ; Normal                         ;
+; Logic Cell Insertion - Logic Duplication                                   ; Auto                           ; Auto                           ;
+; Auto Register Duplication                                                  ; Auto                           ; Auto                           ;
+; Auto Global Clock                                                          ; On                             ; On                             ;
+; Auto Global Register Control Signals                                       ; On                             ; On                             ;
+; Stop After Congestion Map Generation                                       ; Off                            ; Off                            ;
+; Save Intermediate Fitting Results                                          ; Off                            ; Off                            ;
+; Force Fitter to Avoid Periphery Placement Warnings                         ; Off                            ; Off                            ;
+; Use Best Effort Settings for Compilation                                   ; Off                            ; Off                            ;
++----------------------------------------------------------------------------+--------------------------------+--------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------+
+; I/O Assignment Warnings                  ;
++----------+-------------------------------+
+; Pin Name ; Reason                        ;
++----------+-------------------------------+
+; Q        ; Incomplete set of assignments ;
+; IN2      ; Incomplete set of assignments ;
+; A        ; Incomplete set of assignments ;
+; B        ; Incomplete set of assignments ;
+; IN1      ; Incomplete set of assignments ;
+; clk      ; Incomplete set of assignments ;
++----------+-------------------------------+
+
+
++----------------------------------------------+
+; Incremental Compilation Preservation Summary ;
++-------------------------+--------------------+
+; Type                    ; Value              ;
++-------------------------+--------------------+
+; Placement               ;                    ;
+;     -- Requested        ; 0 / 10 ( 0.00 % )  ;
+;     -- Achieved         ; 0 / 10 ( 0.00 % )  ;
+;                         ;                    ;
+; Routing (by Connection) ;                    ;
+;     -- Requested        ; 0 / 0 ( 0.00 % )   ;
+;     -- Achieved         ; 0 / 0 ( 0.00 % )   ;
++-------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Incremental Compilation Partition Settings                                                                                                       ;
++----------------+----------------+-------------------+-------------------------+------------------------+------------------------------+----------+
+; Partition Name ; Partition Type ; Netlist Type Used ; Preservation Level Used ; Netlist Type Requested ; Preservation Level Requested ; Contents ;
++----------------+----------------+-------------------+-------------------------+------------------------+------------------------------+----------+
+; Top            ; User-created   ; Source File       ; N/A                     ; Source File            ; N/A                          ;          ;
++----------------+----------------+-------------------+-------------------------+------------------------+------------------------------+----------+
+
+
++--------------------------------------------------------------------------------------------+
+; Incremental Compilation Placement Preservation                                             ;
++----------------+---------+-------------------+-------------------------+-------------------+
+; Partition Name ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
++----------------+---------+-------------------+-------------------------+-------------------+
+; Top            ; 10      ; 0                 ; N/A                     ; Source File       ;
++----------------+---------+-------------------+-------------------------+-------------------+
 
 
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
+The pin-out file can be found in C:/users/elijah/Desktop/VHDL/Q3/Q3.pin.
 
 
-+---------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                       ;
-+----------------------------------------------+----------------------+
-; Resource                                     ; Usage                ;
-+----------------------------------------------+----------------------+
-; ALUTs Used                                   ; 1 / 12,480 ( < 1 % ) ;
-; Dedicated logic registers                    ; 1 / 12,480 ( < 1 % ) ;
-;                                              ;                      ;
-; ALUTs Unavailable                            ; 0                    ;
-;     -- Due to unpartnered 7 input function   ; 0                    ;
-;     -- Due to unpartnered 6 input function   ; 0                    ;
-;                                              ;                      ;
-; Combinational ALUT usage by number of inputs ;                      ;
-;     -- 7 input functions                     ; 0                    ;
-;     -- 6 input functions                     ; 0                    ;
-;     -- 5 input functions                     ; 0                    ;
-;     -- 4 input functions                     ; 1                    ;
-;     -- <=3 input functions                   ; 0                    ;
-;                                              ;                      ;
-; Combinational ALUTs by mode                  ;                      ;
-;     -- normal mode                           ; 1                    ;
-;     -- extended LUT mode                     ; 0                    ;
-;     -- arithmetic mode                       ; 0                    ;
-;     -- shared arithmetic mode                ; 0                    ;
-;                                              ;                      ;
-; Logic utilization                            ; 1 / 12,480 ( < 1 % ) ;
-;     -- ALUT/register pairs used              ; 1                    ;
-;         -- Combinational with no register    ; 0                    ;
-;         -- Register only                     ; 0                    ;
-;         -- Combinational with a register     ; 1                    ;
-;     -- ALUT/register pairs unavailable       ; 0                    ;
-;                                              ;                      ;
-; Total registers*                             ; 1 / 14,410 ( < 1 % ) ;
-;     -- Dedicated logic registers             ; 1 / 12,480 ( < 1 % ) ;
-;     -- I/O registers                         ; 0 / 1,930 ( 0 % )    ;
-;                                              ;                      ;
-; ALMs:  partially or completely used          ; 1 / 6,240 ( < 1 % )  ;
-;                                              ;                      ;
-; Total LABs:  partially or completely used    ; 1 / 780 ( < 1 % )    ;
-;                                              ;                      ;
-; User inserted logic elements                 ; 0                    ;
-; Virtual pins                                 ; 0                    ;
-; I/O pins                                     ; 6 / 343 ( 2 % )      ;
-;     -- Clock pins                            ; 0 / 16 ( 0 % )       ;
-; Global signals                               ; 0                    ;
-; M512s                                        ; 0 / 104 ( 0 % )      ;
-; M4Ks                                         ; 0 / 78 ( 0 % )       ;
-; Total block memory bits                      ; 0 / 419,328 ( 0 % )  ;
-; Total block memory implementation bits       ; 0 / 419,328 ( 0 % )  ;
-; DSP block 9-bit elements                     ; 0 / 96 ( 0 % )       ;
-; PLLs                                         ; 0 / 6 ( 0 % )        ;
-; Global clocks                                ; 0 / 16 ( 0 % )       ;
-; Regional clocks                              ; 0 / 32 ( 0 % )       ;
-; SERDES transmitters                          ; 0 / 38 ( 0 % )       ;
-; SERDES receivers                             ; 0 / 42 ( 0 % )       ;
-; Average interconnect usage                   ; 0%                   ;
-; Peak interconnect usage                      ; 0%                   ;
-; Maximum fan-out node                         ; Q~reg0               ;
-; Maximum fan-out                              ; 1                    ;
-; Highest non-global fan-out signal            ; Q~reg0               ;
-; Highest non-global fan-out                   ; 1                    ;
-; Total fan-out                                ; 7                    ;
-; Average fan-out                              ; 0.78                 ;
-+----------------------------------------------+----------------------+
++----------------------------------------------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                                                            ;
++-----------------------------------------------------------------------------------+----------------------+
+; Resource                                                                          ; Usage                ;
++-----------------------------------------------------------------------------------+----------------------+
+; Combinational ALUTs                                                               ; 1 / 12,480 ( < 1 % ) ;
+; Dedicated logic registers                                                         ; 1 / 12,480 ( < 1 % ) ;
+;                                                                                   ;                      ;
+; Combinational ALUT usage by number of inputs                                      ;                      ;
+;     -- 7 input functions                                                          ; 0                    ;
+;     -- 6 input functions                                                          ; 0                    ;
+;     -- 5 input functions                                                          ; 0                    ;
+;     -- 4 input functions                                                          ; 1                    ;
+;     -- <=3 input functions                                                        ; 0                    ;
+;                                                                                   ;                      ;
+; Combinational ALUTs by mode                                                       ;                      ;
+;     -- normal mode                                                                ; 1                    ;
+;     -- extended LUT mode                                                          ; 0                    ;
+;     -- arithmetic mode                                                            ; 0                    ;
+;     -- shared arithmetic mode                                                     ; 0                    ;
+;                                                                                   ;                      ;
+; Logic utilization                                                                 ; 1 / 12,480 ( < 1 % ) ;
+;     -- Difficulty Clustering Design                                               ; Low                  ;
+;     -- Combinational ALUT/register pairs used in final Placement                  ; 1                    ;
+;         -- Combinational with no register                                         ; 0                    ;
+;         -- Register only                                                          ; 0                    ;
+;         -- Combinational with a register                                          ; 1                    ;
+;     -- Estimated pairs recoverable by pairing ALUTs and registers as design grows ; 0                    ;
+;     -- Estimated Combinational ALUT/register pairs unavailable                    ; 0                    ;
+;         -- Unavailable due to unpartnered 7 LUTs                                  ; 0                    ;
+;         -- Unavailable due to unpartnered 6 LUTs                                  ; 0                    ;
+;         -- Unavailable due to unpartnered 5 LUTs                                  ; 0                    ;
+;         -- Unavailable due to LAB-wide signal conflicts                           ; 0                    ;
+;         -- Unavailable due to LAB input limits                                    ; 0                    ;
+;                                                                                   ;                      ;
+; Total registers*                                                                  ; 1 / 14,410 ( < 1 % ) ;
+;     -- Dedicated logic registers                                                  ; 1 / 12,480 ( < 1 % ) ;
+;     -- I/O registers                                                              ; 0 / 1,930 ( 0 % )    ;
+;                                                                                   ;                      ;
+; ALMs:  partially or completely used                                               ; 1 / 6,240 ( < 1 % )  ;
+;                                                                                   ;                      ;
+; Total LABs:  partially or completely used                                         ; 1 / 780 ( < 1 % )    ;
+;                                                                                   ;                      ;
+; User inserted logic elements                                                      ; 0                    ;
+; Virtual pins                                                                      ; 0                    ;
+; I/O pins                                                                          ; 6 / 343 ( 2 % )      ;
+;     -- Clock pins                                                                 ; 0 / 16 ( 0 % )       ;
+; Global signals                                                                    ; 0                    ;
+; M512s                                                                             ; 0 / 104 ( 0 % )      ;
+; M4Ks                                                                              ; 0 / 78 ( 0 % )       ;
+; Total block memory bits                                                           ; 0 / 419,328 ( 0 % )  ;
+; Total block memory implementation bits                                            ; 0 / 419,328 ( 0 % )  ;
+; DSP block 9-bit elements                                                          ; 0 / 96 ( 0 % )       ;
+; PLLs                                                                              ; 0 / 6 ( 0 % )        ;
+; Global clocks                                                                     ; 0 / 16 ( 0 % )       ;
+; Regional clocks                                                                   ; 0 / 32 ( 0 % )       ;
+; SERDES transmitters                                                               ; 0 / 38 ( 0 % )       ;
+; SERDES receivers                                                                  ; 0 / 42 ( 0 % )       ;
+; JTAGs                                                                             ; 0 / 1 ( 0 % )        ;
+; ASMI blocks                                                                       ; 0 / 1 ( 0 % )        ;
+; CRC blocks                                                                        ; 0 / 1 ( 0 % )        ;
+; Remote update blocks                                                              ; 0 / 1 ( 0 % )        ;
+; Average interconnect usage (total/H/V)                                            ; 0% / 0% / 0%         ;
+; Peak interconnect usage (total/H/V)                                               ; 0% / 0% / 0%         ;
+; Maximum fan-out node                                                              ; Q~reg0               ;
+; Maximum fan-out                                                                   ; 1                    ;
+; Highest non-global fan-out signal                                                 ; Q~reg0               ;
+; Highest non-global fan-out                                                        ; 1                    ;
+; Total fan-out                                                                     ; 7                    ;
+; Average fan-out                                                                   ; 0.78                 ;
++-----------------------------------------------------------------------------------+----------------------+
 *  Register count does not include registers inside block RAM or DSP blocks.
 
 
@@ -209,21 +280,21 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 +------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; A    ; R16   ; 1        ; 0            ; 1            ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; B    ; Y21   ; 1        ; 0            ; 1            ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; Clk  ; W15   ; 8        ; 5            ; 0            ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; IN1  ; V14   ; 8        ; 6            ; 0            ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; IN2  ; W16   ; 8        ; 5            ; 0            ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; A    ; D20   ; 3        ; 3            ; 27           ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; B    ; W20   ; 1        ; 0            ; 2            ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; IN1  ; W13   ; 8        ; 15           ; 0            ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; IN2  ; AB18  ; 8        ; 11           ; 0            ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; clk  ; R7    ; 6        ; 40           ; 3            ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 +------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                                                                                                           ;
-+------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+
-; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ;
-+------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+
-; Q    ; U14   ; 8        ; 5            ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ;
-+------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Bidir Pins                                                                                                                                                                                                                                                                                                                                                                                ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
+; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
+; Q    ; R8    ; 6        ; 40           ; 3            ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 12mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
 +----------------------------------------------------------+
@@ -231,14 +302,14 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 +----------+----------------+---------------+--------------+
 ; I/O Bank ; Usage          ; VCCIO Voltage ; VREF Voltage ;
 +----------+----------------+---------------+--------------+
-; 1        ; 2 / 40 ( 5 % ) ; 3.3V          ; --           ;
+; 1        ; 1 / 40 ( 3 % ) ; 3.3V          ; --           ;
 ; 2        ; 0 / 44 ( 0 % ) ; 3.3V          ; --           ;
-; 3        ; 1 / 50 ( 2 % ) ; 3.3V          ; --           ;
+; 3        ; 2 / 50 ( 4 % ) ; 3.3V          ; --           ;
 ; 4        ; 0 / 35 ( 0 % ) ; 3.3V          ; --           ;
 ; 5        ; 0 / 44 ( 0 % ) ; 3.3V          ; --           ;
-; 6        ; 0 / 40 ( 0 % ) ; 3.3V          ; --           ;
+; 6        ; 2 / 40 ( 5 % ) ; 3.3V          ; --           ;
 ; 7        ; 0 / 34 ( 0 % ) ; 3.3V          ; --           ;
-; 8        ; 4 / 43 ( 9 % ) ; 3.3V          ; --           ;
+; 8        ; 2 / 43 ( 5 % ) ; 3.3V          ; --           ;
 ; 9        ; 0 / 6 ( 0 % )  ; 3.3V          ; --           ;
 ; 10       ; 0 / 6 ( 0 % )  ; 3.3V          ; --           ;
 +----------+----------------+---------------+--------------+
@@ -310,7 +381,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; AB15     ; 125        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB16     ; 124        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB17     ; 117        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB18     ; 118        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AB18     ; 118        ; 8        ; IN2                      ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AB19     ; 87         ; 8        ; #TRST                    ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; AB20     ;            ; 8        ; VCCIO8                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AB21     ; 84         ; 8        ; #TDI                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
@@ -378,7 +449,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; D17      ; 373        ; 3        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D18      ; 379        ; 3        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D19      ; 382        ; 3        ; ^DCLK                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D20      ; 371        ; 3        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; D20      ; 371        ; 3        ; A                        ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D21      ; 6          ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D22      ; 4          ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E1       ; 267        ; 5        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -607,8 +678,8 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; R4       ; 213        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R5       ; 214        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R6       ; 212        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R7       ; 202        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R8       ; 200        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R7       ; 202        ; 6        ; clk                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R8       ; 200        ; 6        ; Q                        ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; R9       ; 168        ; 7        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R10      ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; R11      ;            ; 10       ; VCC_PLL6_OUT             ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -616,7 +687,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; R13      ;            ; 8        ; VCCPD8                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; R14      ; 106        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R15      ; 89         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R16      ; 83         ; 1        ; A                        ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R16      ; 83         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R17      ; 81         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R18      ; 63         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R19      ; 61         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -658,7 +729,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; U11      ;            ;          ; VCCD_PLL6                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U12      ; 130        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U13      ; 112        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; U14      ; 103        ; 8        ; Q                        ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; U14      ; 103        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U15      ; 99         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U16      ; 94         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U17      ; 71         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -680,7 +751,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; V11      ; 132        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V12      ; 134        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V13      ; 114        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; V14      ; 105        ; 8        ; IN1                      ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; V14      ; 105        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V15      ; 97         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V16      ; 93         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V17      ; 90         ; 8        ; ^VCCSEL                  ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -701,14 +772,14 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; W10      ; 142        ; 7        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W11      ; 133        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W12      ; 135        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; W13      ; 128        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; W13      ; 128        ; 8        ; IN1                      ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; W14      ; 109        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; W15      ; 102        ; 8        ; Clk                      ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; W16      ; 101        ; 8        ; IN2                      ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; W15      ; 102        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; W16      ; 101        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W17      ; 95         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W18      ; 88         ; 8        ; ^nCONFIG                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; W19      ; 79         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; W20      ; 77         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; W20      ; 77         ; 1        ; B                        ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; W21      ; 78         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W22      ; 76         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y1       ; 195        ; 6        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -731,7 +802,7 @@ The pin-out file can be found in D:/學校/課程資料/大二下/數位系統/Q3/Q3.pin.
 ; Y18      ; 113        ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y19      ;            ; 8        ; VREFB8                   ; power  ;              ;         ; --         ;                 ; --       ; --           ;
 ; Y20      ; 91         ; 8        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y21      ; 82         ; 1        ; B                        ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; Y21      ; 82         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y22      ; 80         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 +----------+------------+----------+--------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
@@ -785,18 +856,18 @@ Note: User assignments will override these defaults. The user specified values a
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Delay Chain Summary                                                                                                    ;
-+------+----------+---------------+---------------+-----------------------+-----+------+---------+----------+------------+
-; Name ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE ; DQS bus ; NDQS bus ; DQS output ;
-+------+----------+---------------+---------------+-----------------------+-----+------+---------+----------+------------+
-; Q    ; Output   ; --            ; --            ; --                    ; --  ; 0    ; --      ; --       ; --         ;
-; IN2  ; Input    ; 7             ; 7             ; --                    ; --  ; --   ; --      ; --       ; --         ;
-; A    ; Input    ; 7             ; 7             ; --                    ; --  ; --   ; --      ; --       ; --         ;
-; B    ; Input    ; 7             ; 7             ; --                    ; --  ; --   ; --      ; --       ; --         ;
-; IN1  ; Input    ; 7             ; 7             ; --                    ; --  ; --   ; --      ; --       ; --         ;
-; Clk  ; Input    ; 0             ; 0             ; --                    ; --  ; --   ; --      ; --       ; --         ;
-+------+----------+---------------+---------------+-----------------------+-----+------+---------+----------+------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                         ;
++------+----------+---------------+---------------+-----------------------+-----+-----------+---------+----------+------------+
+; Name ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE      ; DQS bus ; NDQS bus ; DQS output ;
++------+----------+---------------+---------------+-----------------------+-----+-----------+---------+----------+------------+
+; Q    ; Bidir    ; (0) 206 ps    ; (0) 206 ps    ; --                    ; --  ; (0) 52 ps ; --      ; --       ; --         ;
+; IN2  ; Input    ; (7) 2996 ps   ; (7) 2996 ps   ; --                    ; --  ; --        ; --      ; --       ; --         ;
+; A    ; Input    ; (7) 2996 ps   ; (7) 2996 ps   ; --                    ; --  ; --        ; --      ; --       ; --         ;
+; B    ; Input    ; (7) 3082 ps   ; (7) 3082 ps   ; --                    ; --  ; --        ; --      ; --       ; --         ;
+; IN1  ; Input    ; (7) 2996 ps   ; (7) 2996 ps   ; --                    ; --  ; --        ; --      ; --       ; --         ;
+; clk  ; Input    ; (0) 206 ps    ; (0) 206 ps    ; --                    ; --  ; --        ; --      ; --       ; --         ;
++------+----------+---------------+---------------+-----------------------+-----+-----------+---------+----------+------------+
 
 
 +---------------------------------------------------+
@@ -804,15 +875,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------------+---------+
 ; Source Pin / Fanout ; Pad To Core Index ; Setting ;
 +---------------------+-------------------+---------+
+; Q                   ;                   ;         ;
 ; IN2                 ;                   ;         ;
-;      - Q~72         ; 1                 ; 7       ;
+;      - D~0          ; 0                 ; 7       ;
 ; A                   ;                   ;         ;
-;      - Q~72         ; 1                 ; 7       ;
+;      - D~0          ; 0                 ; 7       ;
 ; B                   ;                   ;         ;
-;      - Q~72         ; 0                 ; 7       ;
+;      - D~0          ; 0                 ; 7       ;
 ; IN1                 ;                   ;         ;
-;      - Q~72         ; 1                 ; 7       ;
-; Clk                 ;                   ;         ;
+;      - D~0          ; 1                 ; 7       ;
+; clk                 ;                   ;         ;
 ;      - Q~reg0       ; 1                 ; 0       ;
 +---------------------+-------------------+---------+
 
@@ -822,7 +894,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; Clk  ; PIN_W15  ; 1       ; Clock ; no     ; --                   ; --               ; --                        ;
+; clk  ; PIN_R7   ; 1       ; Clock ; no     ; --                   ; --               ; --                        ;
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 
 
@@ -831,12 +903,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+------------------------+
 ; Name   ; Fan-Out                ;
 +--------+------------------------+
-; Clk    ; 1                      ;
+; clk    ; 1                      ;
 ; IN1    ; 1                      ;
 ; B      ; 1                      ;
 ; A      ; 1                      ;
 ; IN2    ; 1                      ;
-; Q~72   ; 1                      ;
+; D~0    ; 1                      ;
 ; Q~reg0 ; 1                      ;
 +--------+------------------------+
 
@@ -847,7 +919,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Interconnect Resource Type                ; Usage                ;
 +-------------------------------------------+----------------------+
 ; Block interconnects                       ; 6 / 51,960 ( < 1 % ) ;
-; C16 interconnects                         ; 0 / 1,680 ( 0 % )    ;
+; C16 interconnects                         ; 2 / 1,680 ( < 1 % )  ;
 ; C4 interconnects                          ; 4 / 38,400 ( < 1 % ) ;
 ; DPA clocks                                ; 0 / 4 ( 0 % )        ;
 ; DQS bus muxes                             ; 0 / 18 ( 0 % )       ;
@@ -864,27 +936,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; NDQS-9 I/O buses                          ; 0 / 8 ( 0 % )        ;
 ; PLL transmitter or receiver load enables  ; 0 / 8 ( 0 % )        ;
 ; PLL transmitter or receiver synch. clocks ; 0 / 8 ( 0 % )        ;
-; R24 interconnects                         ; 0 / 1,664 ( 0 % )    ;
-; R24/C16 interconnect drivers              ; 0 / 4,160 ( 0 % )    ;
-; R4 interconnects                          ; 4 / 59,488 ( < 1 % ) ;
+; R24 interconnects                         ; 4 / 1,664 ( < 1 % )  ;
+; R24/C16 interconnect drivers              ; 3 / 4,160 ( < 1 % )  ;
+; R4 interconnects                          ; 5 / 59,488 ( < 1 % ) ;
 ; Regional clocks                           ; 0 / 32 ( 0 % )       ;
 +-------------------------------------------+----------------------+
 
 
-+--------------------------------------------------------------------------+
-; LAB Logic Elements                                                       ;
-+--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 1.00) ; Number of LABs  (Total = 1) ;
-+--------------------------------------------+-----------------------------+
-; 1                                          ; 1                           ;
-; 2                                          ; 0                           ;
-; 3                                          ; 0                           ;
-; 4                                          ; 0                           ;
-; 5                                          ; 0                           ;
-; 6                                          ; 0                           ;
-; 7                                          ; 0                           ;
-; 8                                          ; 0                           ;
-+--------------------------------------------+-----------------------------+
++----------------------------------------------------------------+
+; LAB Logic Elements                                             ;
++----------------------------------+-----------------------------+
+; Number of ALMs  (Average = 1.00) ; Number of LABs  (Total = 1) ;
++----------------------------------+-----------------------------+
+; 1                                ; 1                           ;
+; 2                                ; 0                           ;
+; 3                                ; 0                           ;
+; 4                                ; 0                           ;
+; 5                                ; 0                           ;
+; 6                                ; 0                           ;
+; 7                                ; 0                           ;
+; 8                                ; 0                           ;
++----------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
@@ -997,7 +1069,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; A                  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; B                  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; IN1                ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; Clk                ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; clk                ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+--------------+--------------+--------------+
 
 
@@ -1012,6 +1084,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Enable INIT_DONE output                      ; Off                      ;
 ; Configuration scheme                         ; Passive Serial           ;
 ; Error detection CRC                          ; Off                      ;
+; Configuration Voltage Level                  ; Auto                     ;
+; Force Configuration Voltage Level            ; Off                      ;
 ; nWS, nRS, nCS, CS                            ; Unreserved               ;
 ; RDYnBUSY                                     ; Unreserved               ;
 ; Data[7..1]                                   ; Unreserved               ;
@@ -1033,92 +1107,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
-+----------------------------+
-; Advanced Data - General    ;
-+--------------------+-------+
-; Name               ; Value ;
-+--------------------+-------+
-; Status Code        ; 0     ;
-; Desired User Slack ; 0     ;
-; Fit Attempts       ; 1     ;
-+--------------------+-------+
-
-
-+---------------------------------------------------------------------------------------+
-; Advanced Data - Placement Preparation                                                 ;
-+--------------------------------------------------------------------------+------------+
-; Name                                                                     ; Value      ;
-+--------------------------------------------------------------------------+------------+
-; Auto Fit Point 1 - Fit Attempt 1                                         ; ff         ;
-; Mid Wire Use - Fit Attempt 1                                             ; 0          ;
-; Mid Slack - Fit Attempt 1                                                ; 2147483639 ;
-; Internal Atom Count - Fit Attempt 1                                      ; 3          ;
-; LE/ALM Count - Fit Attempt 1                                             ; 2          ;
-; LAB Count - Fit Attempt 1                                                ; 2          ;
-; Outputs per Lab - Fit Attempt 1                                          ; 0.500      ;
-; Inputs per LAB - Fit Attempt 1                                           ; 2.500      ;
-; Global Inputs per LAB - Fit Attempt 1                                    ; 0.000      ;
-; LAB Constraint 'CE + async load' - Fit Attempt 1                         ; 0:2        ;
-; LAB Constraint 'non-global clock + sync load' - Fit Attempt 1            ; 0:1;1:1    ;
-; LAB Constraint 'non-global controls' - Fit Attempt 1                     ; 0:1;1:1    ;
-; LAB Constraint 'deterministic LABSMUXA/LABSMUXB overuse' - Fit Attempt 1 ; 0:1;1:1    ;
-; LAB Constraint 'deterministic LABSMUXE/LABSMUXF overuse' - Fit Attempt 1 ; 0:2        ;
-; LAB Constraint 'global controls' - Fit Attempt 1                         ; 0:2        ;
-; LAB Constraint 'global non-clock/non-asynch_clear' - Fit Attempt 1       ; 0:2        ;
-; LAB Constraint 'clock / ce pair constraint' - Fit Attempt 1              ; 0:1;1:1    ;
-; LAB Constraint 'clock constraint' - Fit Attempt 1                        ; 0:1;1:1    ;
-; LAB Constraint 'carry chain tie-off constraint' - Fit Attempt 1          ; 0:2        ;
-; LAB Constraint 'aload_aclr pair with aload used' - Fit Attempt 1         ; 0:2        ;
-; LAB Constraint 'aload_aclr pair' - Fit Attempt 1                         ; 0:1;1:1    ;
-; LAB Constraint 'true sload_sclear pair' - Fit Attempt 1                  ; 0:2        ;
-; LAB Constraint 'constant sload_sclear pair' - Fit Attempt 1              ; 0:2        ;
-; LAB Constraint 'has placement constraint' - Fit Attempt 1                ; 0:2        ;
-; LEs in Chains - Fit Attempt 1                                            ; 0          ;
-; LEs in Long Chains - Fit Attempt 1                                       ; 0          ;
-; LABs with Chains - Fit Attempt 1                                         ; 0          ;
-; LABs with Multiple Chains - Fit Attempt 1                                ; 0          ;
-; Time - Fit Attempt 1                                                     ; 0          ;
-; Time in tsm_tan.dll - Fit Attempt 1                                      ; 0.001      ;
-+--------------------------------------------------------------------------+------------+
-
-
-+--------------------------------------------------+
-; Advanced Data - Placement                        ;
-+-------------------------------------+------------+
-; Name                                ; Value      ;
-+-------------------------------------+------------+
-; Auto Fit Point 2 - Fit Attempt 1    ; ff         ;
-; Auto Fit Point 4 - Fit Attempt 1    ; ff         ;
-; Auto Fit Point 5 - Fit Attempt 1    ; ff         ;
-; Early Wire Use - Fit Attempt 1      ; 0          ;
-; Early Slack - Fit Attempt 1         ; 2147483639 ;
-; Auto Fit Point 4 - Fit Attempt 1    ; ff         ;
-; Mid Wire Use - Fit Attempt 1        ; 0          ;
-; Mid Slack - Fit Attempt 1           ; 2147483639 ;
-; Auto Fit Point 5 - Fit Attempt 1    ; ff         ;
-; Late Wire Use - Fit Attempt 1       ; 0          ;
-; Late Slack - Fit Attempt 1          ; 2147483639 ;
-; Peak Regional Wire - Fit Attempt 1  ; 0.000      ;
-; Auto Fit Point 6 - Fit Attempt 1    ; ff         ;
-; Time - Fit Attempt 1                ; 0          ;
-; Time in tsm_tan.dll - Fit Attempt 1 ; 0.001      ;
-+-------------------------------------+------------+
-
-
-+--------------------------------------------------+
-; Advanced Data - Routing                          ;
-+-------------------------------------+------------+
-; Name                                ; Value      ;
-+-------------------------------------+------------+
-; Early Wire Use - Fit Attempt 1      ; 0          ;
-; Peak Regional Wire - Fit Attempt 1  ; 0          ;
-; Early Slack - Fit Attempt 1         ; 2147483639 ;
-; Mid Slack - Fit Attempt 1           ; 2147483639 ;
-; Late Slack - Fit Attempt 1          ; 2147483639 ;
-; Late Wire Use - Fit Attempt 1       ; 0          ;
-; Time - Fit Attempt 1                ; 0          ;
-; Time in tsm_tan.dll - Fit Attempt 1 ; 0.005      ;
-+-------------------------------------+------------+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing                      ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
 
 
 +-----------------+
@@ -1126,27 +1119,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+
 Info: *******************************************************************
 Info: Running Quartus II Fitter
-    Info: Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
-    Info: Processing started: Sun Apr 21 23:15:50 2019
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sun Apr 14 15:27:36 2024
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Q3 -c Q3
 Info: Automatically selected device EP2S15F484C3 for design Q3
-Warning: The high junction temperature operating condition is not set. Assuming a default value of '85'.
-Warning: The low junction temperature operating condition is not set. Assuming a default value of '0'.
 Info: Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
-Warning: Feature LogicLock incremental compilation is not available with your current license
-Info: The Fitter has identified 1 logical partitions of which 0 have a previous placement to use
-    Info: Previous placement does not exist for 8 of 8 atoms in partition Top
+Warning: Feature LogicLock is only available with a valid subscription license. Please purchase a software subscription to gain full access to this feature.
 Info: Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
 Info: Fitter converted 1 user pins into dedicated programming pins
     Info: Pin ~DATA0~ is reserved at location E13
-Warning: No exact pin location assignment(s) for 6 pins of 6 total pins
+Critical Warning: No exact pin location assignment(s) for 6 pins of 6 total pins
     Info: Pin Q not assigned to an exact location on the device
     Info: Pin IN2 not assigned to an exact location on the device
     Info: Pin A not assigned to an exact location on the device
     Info: Pin B not assigned to an exact location on the device
     Info: Pin IN1 not assigned to an exact location on the device
-    Info: Pin Clk not assigned to an exact location on the device
-Info: Fitter is using the Classic Timing Analyzer
+    Info: Pin clk not assigned to an exact location on the device
+Warning: Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
+Info: Timing-driven compilation is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
 Info: Starting register packing
 Extra Info: Performing register packing on registers with non-logic cell location assignments
@@ -1155,10 +1145,10 @@ Extra Info: Started Fast Input/Output/OE register processing
 Extra Info: Finished Fast Input/Output/OE register processing
 Extra Info: Moving registers into I/O cells, DSP blocks, and RAM blocks to improve timing and density
 Extra Info: Finished moving registers into I/O cells, DSP blocks, and RAM blocks
-Info: Finished register packing: elapsed time is 00:00:00
+Info: Finished register packing
     Extra Info: No registers were packed into other blocks
 Info: Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info: Number of I/O pins in group: 6 (unused VREF, 3.30 VCCIO, 5 input, 1 output, 0 bidirectional)
+    Info: Number of I/O pins in group: 6 (unused VREF, 3.3V VCCIO, 5 input, 0 output, 1 bidirectional)
         Info: I/O standards used: 3.3-V LVTTL.
 Info: I/O bank details before I/O pin placement
     Info: Statistics of I/O banks
@@ -1172,6 +1162,7 @@ Info: I/O bank details before I/O pin placement
         Info: I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  43 pins available
         Info: I/O bank number 9 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  6 pins available
         Info: I/O bank number 10 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  6 pins available
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -1179,7 +1170,7 @@ Info: Fitter placement was successful
 Info: Fitter placement operations ending: elapsed time is 00:00:00
 Info: Fitter routing operations beginning
 Info: Average interconnect usage is 0% of the available device resources
-    Info: Peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X12_Y13
+    Info: Peak interconnect usage is 0% of the available device resources in the region that extends from location X13_Y0 to location X26_Y13
 Info: Fitter routing operations ending: elapsed time is 00:00:00
 Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info: Optimizations that may affect the design's routability were skipped
@@ -1188,10 +1179,13 @@ Info: Started post-fitting delay annotation
 Warning: Found 1 output pins without output pin load capacitance assignment
     Info: Pin "Q" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
+Warning: Following 1 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
+    Info: Pin Q has a permanently enabled output enable
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Quartus II Fitter was successful. 0 errors, 6 warnings
-    Info: Allocated 268 megabytes of memory during processing
-    Info: Processing ended: Sun Apr 21 23:15:53 2019
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 211 megabytes
+    Info: Processing ended: Sun Apr 14 15:27:46 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:07
 
 
