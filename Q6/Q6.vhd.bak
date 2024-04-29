@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+entity Q6 is 
+	port(x : out std_logic_vector(5 downto 0);
+		 B : in std_logic_vector(2 downto 0);
+		 A : in std_logic_vector(2 downto 0)
+		 
+	);
+end Q6;
+architecture structural of Q6 is 
+component adder3Bit is 
+	port(x : out std_logic_vector(4 downto 0);
+		 B : in std_logic_vector(1 downto 0);
+		 A : in std_logic_vector(2 downto 0)	 
+	);
+end component;
+signal temp : std_logic_vector(4 downto 0);
+signal adden : std_logic_vector(2 downto 0);
+begin
+ad0 : adder3Bit port map(temp, B(1 downto 0), A);
+x(0)<= temp(0);
+x(1)<= temp(1);
+adden <= (B(2)and A(2))&(B(2)and A(1))&(B(2)and A(0));
+x( 5 downto 2) <= adden+temp(4 downto 2);
+
+
+end structural;

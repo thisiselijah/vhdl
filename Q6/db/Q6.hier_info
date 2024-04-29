@@ -1,0 +1,40 @@
+|Q6
+x[0] <= adder3Bit:ad0.x[0]
+x[1] <= adder3Bit:ad0.x[1]
+x[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+B[0] => adder3Bit:ad0.B[0]
+B[1] => adder3Bit:ad0.B[1]
+B[2] => adden[2].IN0
+B[2] => adden[1].IN0
+B[2] => adden[0].IN0
+A[0] => adden[0].IN1
+A[0] => adder3Bit:ad0.A[0]
+A[1] => adden[1].IN1
+A[1] => adder3Bit:ad0.A[1]
+A[2] => adden[2].IN1
+A[2] => adder3Bit:ad0.A[2]
+
+
+|Q6|adder3Bit:ad0
+x[0] <= x~0.DB_MAX_OUTPUT_PORT_TYPE
+x[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+x[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+B[0] => augend[1].IN0
+B[0] => augend[0].IN0
+B[0] => x~0.IN0
+B[1] => adden[2].IN0
+B[1] => adden[1].IN0
+B[1] => adden[0].IN0
+A[0] => adden[0].IN1
+A[0] => x~0.IN1
+A[1] => adden[1].IN1
+A[1] => augend[0].IN1
+A[2] => adden[2].IN1
+A[2] => augend[1].IN1
+
+

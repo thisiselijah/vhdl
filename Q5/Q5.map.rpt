@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Q5
-Sun Jun 09 00:09:22 2019
+Sun Apr 14 23:54:36 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -13,8 +13,8 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+  8. State Machine - |Q5|ps
+  9. General Register Statistics
  10. Analysis & Synthesis Messages
 
 
@@ -41,15 +41,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Sun Jun 09 00:09:22 2019        ;
+; Analysis & Synthesis Status   ; Successful - Sun Apr 14 23:54:36 2024        ;
 ; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                 ; Q5                                           ;
 ; Top-level Entity Name         ; Q5                                           ;
 ; Family                        ; Stratix II                                   ;
 ; Logic utilization             ; N/A                                          ;
-;     Combinational ALUTs       ; 111                                          ;
-;     Dedicated logic registers ; 35                                           ;
-; Total registers               ; 35                                           ;
+;     Combinational ALUTs       ; 13                                           ;
+;     Dedicated logic registers ; 8                                            ;
+; Total registers               ; 8                                            ;
 ; Total pins                    ; 5                                            ;
 ; Total virtual pins            ; 0                                            ;
 ; Total block memory bits       ; 0                                            ;
@@ -145,18 +145,18 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 2      ;
+; Number detected on machine ; 3      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                            ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path               ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+
-; Q5.vhd                           ; yes             ; User VHDL File  ; D:/學校/課程資料/大二下/數位系統/Q5/Q5.vhd ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                        ;
++----------------------------------+-----------------+-----------------+----------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path           ;
++----------------------------------+-----------------+-----------------+----------------------------------------+
+; Q5.vhd                           ; yes             ; User VHDL File  ; C:/users/elijah/Desktop/VHDL/Q5/Q5.vhd ;
++----------------------------------+-----------------+-----------------+----------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -164,38 +164,38 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------------+-------+
 ; Resource                                      ; Usage ;
 +-----------------------------------------------+-------+
-; Estimated ALUTs Used                          ; 111   ;
-; Dedicated logic registers                     ; 35    ;
+; Estimated ALUTs Used                          ; 13    ;
+; Dedicated logic registers                     ; 8     ;
 ;                                               ;       ;
-; Estimated ALUTs Unavailable                   ; 11    ;
+; Estimated ALUTs Unavailable                   ; 1     ;
 ;                                               ;       ;
-; Total combinational functions                 ; 111   ;
+; Total combinational functions                 ; 13    ;
 ; Combinational ALUT usage by number of inputs  ;       ;
 ;     -- 7 input functions                      ; 0     ;
-;     -- 6 input functions                      ; 11    ;
-;     -- 5 input functions                      ; 32    ;
-;     -- 4 input functions                      ; 3     ;
-;     -- <=3 input functions                    ; 65    ;
+;     -- 6 input functions                      ; 1     ;
+;     -- 5 input functions                      ; 2     ;
+;     -- 4 input functions                      ; 6     ;
+;     -- <=3 input functions                    ; 4     ;
 ;                                               ;       ;
 ; Combinational ALUTs by mode                   ;       ;
-;     -- normal mode                            ; 47    ;
+;     -- normal mode                            ; 13    ;
 ;     -- extended LUT mode                      ; 0     ;
-;     -- arithmetic mode                        ; 64    ;
+;     -- arithmetic mode                        ; 0     ;
 ;     -- shared arithmetic mode                 ; 0     ;
 ;                                               ;       ;
-; Estimated ALUT/register pairs used            ; 122   ;
+; Estimated ALUT/register pairs used            ; 14    ;
 ;                                               ;       ;
-; Total registers                               ; 35    ;
-;     -- Dedicated logic registers              ; 35    ;
+; Total registers                               ; 8     ;
+;     -- Dedicated logic registers              ; 8     ;
 ;     -- I/O registers                          ; 0     ;
 ;                                               ;       ;
-; Estimated ALMs:  partially or completely used ; 61    ;
+; Estimated ALMs:  partially or completely used ; 7     ;
 ;                                               ;       ;
 ; I/O pins                                      ; 5     ;
-; Maximum fan-out node                          ; clk   ;
-; Maximum fan-out                               ; 35    ;
-; Total fan-out                                 ; 439   ;
-; Average fan-out                               ; 2.91  ;
+; Maximum fan-out node                          ; X     ;
+; Maximum fan-out                               ; 9     ;
+; Total fan-out                                 ; 71    ;
+; Average fan-out                               ; 2.73  ;
 +-----------------------------------------------+-------+
 
 
@@ -204,9 +204,26 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |Q5                        ; 111 (111)         ; 35 (35)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 5    ; 0            ; |Q5                 ; work         ;
+; |Q5                        ; 13 (13)           ; 8 (8)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 5    ; 0            ; |Q5                 ; work         ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------+
+; State Machine - |Q5|ps                                                ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+; Name  ; ps.s7 ; ps.s6 ; ps.s5 ; ps.s4 ; ps.s3 ; ps.s2 ; ps.s1 ; ps.s0 ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+; ps.s0 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ;
+; ps.s1 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 1     ;
+; ps.s2 ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 1     ;
+; ps.s3 ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 1     ;
+; ps.s4 ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 1     ;
+; ps.s5 ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 1     ;
+; ps.s6 ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ;
+; ps.s7 ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
 
 +------------------------------------------------------+
@@ -214,7 +231,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 35    ;
+; Total registers                              ; 8     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -224,34 +241,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; No         ; |Q5|counter                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Jun 09 00:09:20 2019
+    Info: Processing started: Sun Apr 14 23:54:34 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Q5 -c Q5
 Info: Found 2 design units, including 1 entities, in source file q5.vhd
-    Info: Found design unit 1: Q5-a
+    Info: Found design unit 1: Q5-behavioral
     Info: Found entity 1: Q5
 Info: Elaborating entity "Q5" for the top level hierarchy
-Info: Implemented 148 device resources after synthesis - the final resource count might be different
+Info (10041): Inferred latch for "count[0]" at Q5.vhd(38)
+Info (10041): Inferred latch for "count[1]" at Q5.vhd(38)
+Info (10041): Inferred latch for "count[2]" at Q5.vhd(38)
+Info (10041): Inferred latch for "ls.s7" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s6" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s5" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s4" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s3" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s2" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s1" at Q5.vhd(30)
+Info (10041): Inferred latch for "ls.s0" at Q5.vhd(30)
+Info (10041): Inferred latch for "ns.s7" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s6" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s5" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s4" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s3" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s2" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s1" at Q5.vhd(22)
+Info (10041): Inferred latch for "ns.s0" at Q5.vhd(22)
+Info: Implemented 18 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 3 output pins
-    Info: Implemented 143 logic cells
+    Info: Implemented 13 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 249 megabytes
-    Info: Processing ended: Sun Jun 09 00:09:22 2019
+    Info: Peak virtual memory: 175 megabytes
+    Info: Processing ended: Sun Apr 14 23:54:36 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

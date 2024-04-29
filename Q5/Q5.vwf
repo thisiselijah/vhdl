@@ -5,7 +5,7 @@ the Block Editor! File corruption is VERY likely to occur.
 */
 
 /*
-Copyright (C) 1991-2007 Altera Corporation
+Copyright (C) 1991-2010 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -42,7 +42,7 @@ SIGNAL("clk")
 	PARENT = "";
 }
 
-SIGNAL("q")
+SIGNAL("count")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
@@ -52,37 +52,37 @@ SIGNAL("q")
 	PARENT = "";
 }
 
-SIGNAL("q[2]")
+SIGNAL("count[2]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "q";
+	PARENT = "count";
 }
 
-SIGNAL("q[1]")
+SIGNAL("count[1]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "q";
+	PARENT = "count";
 }
 
-SIGNAL("q[0]")
+SIGNAL("count[0]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "q";
+	PARENT = "count";
 }
 
-SIGNAL("x")
+SIGNAL("X")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -106,57 +106,45 @@ TRANSITION_LIST("clk")
 	}
 }
 
-TRANSITION_LIST("q[2]")
+TRANSITION_LIST("count[2]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 620.0;
-		LEVEL 0 FOR 90.0;
-		LEVEL X FOR 290.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
-TRANSITION_LIST("q[1]")
+TRANSITION_LIST("count[1]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 620.0;
-		LEVEL 0 FOR 90.0;
-		LEVEL X FOR 290.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
-TRANSITION_LIST("q[0]")
+TRANSITION_LIST("count[0]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 620.0;
-		LEVEL 0 FOR 90.0;
-		LEVEL X FOR 290.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
-TRANSITION_LIST("x")
+TRANSITION_LIST("X")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 50.0;
-		LEVEL 1 FOR 260.0;
+		NODE
+		{
+			REPEAT = 7;
+			LEVEL 0 FOR 70.0;
+			LEVEL 1 FOR 70.0;
+		}
 		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 30.0;
-		LEVEL 1 FOR 150.0;
-		LEVEL 0 FOR 140.0;
-		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -164,16 +152,16 @@ DISPLAY_LINE
 {
 	CHANNEL = "clk";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 0;
 	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "q";
+	CHANNEL = "count";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 1;
 	TREE_LEVEL = 0;
 	CHILDREN = 2, 3, 4;
@@ -181,9 +169,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "q[2]";
+	CHANNEL = "count[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 2;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -191,9 +179,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "q[1]";
+	CHANNEL = "count[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 3;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -201,9 +189,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "q[0]";
+	CHANNEL = "count[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 4;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -211,9 +199,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "x";
+	CHANNEL = "X";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 5;
 	TREE_LEVEL = 0;
 }
