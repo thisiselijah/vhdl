@@ -1,0 +1,24 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity Q7 is 
+	port(D, clk : in std_logic;
+		 Q : out std_logic
+	);
+end Q7;
+
+architecture structural of Q7 is 
+
+component DFF is 
+	port(D, clk: in std_logic;
+		 Q : inout std_logic
+	);
+end component;
+signal Qt : std_logic_vector(3 downto 0);
+begin
+Qt(0) <= D;
+gen: for i in 0 to 2 generate
+        DF: component DFF port map (Qt(i), clk, Qt(i+1));
+end generate;
+Q <= Qt(3);
+	
+end structural;
