@@ -1,0 +1,11 @@
+|Q7
+D => Q[0].DATAIN
+clk => \gen:0:DF.CLK
+clk => \gen:1:DF.CLK
+clk => \gen:2:DF.CLK
+Q[0] <> Q[0]
+Q[1] <> \gen:0:DF
+Q[2] <> \gen:1:DF
+Q[3] <> \gen:2:DF
+
+
