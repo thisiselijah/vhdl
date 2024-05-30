@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FlappyBirds">
+		<CBX_INST_ENTRY INSTANCE_NAME="|FlappyBirds|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_ihm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FlappyBirds|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_o9m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FlappyBirds|pipe_generator:pipe_generator_inst|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_k9m.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
