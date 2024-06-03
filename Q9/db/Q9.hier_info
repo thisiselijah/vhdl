@@ -1,0 +1,13 @@
+|Q9
+A => Temp~0.IN0
+B => Temp~0.IN1
+C => Temp~1.IN0
+D => Temp~1.IN1
+E => Y~0.IN1
+E => Y~1.IN1
+E => Y~2.IN1
+Y[3] <= Y~2.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y~1.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

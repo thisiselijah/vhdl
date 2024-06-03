@@ -1,7 +1,0 @@
-
-State Machine - |FlappyBirds|game_controller:game_controller_inst|current_state
-Name current_state.GAME_OVER current_state.RUNNING current_state.WAIT_STATE current_state.POWER_ON 
-current_state.POWER_ON 0 0 0 0 
-current_state.WAIT_STATE 0 0 1 1 
-current_state.RUNNING 0 1 0 1 
-current_state.GAME_OVER 1 0 0 1 

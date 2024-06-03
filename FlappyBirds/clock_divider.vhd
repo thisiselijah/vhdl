@@ -5,14 +5,14 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity clock_divider is
     Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
+           game_state : in STD_LOGIC_VECTOR(1 downto 0);
            clk_div : inout STD_LOGIC);
 end clock_divider;
 
 architecture Behavioral of clock_divider is
     signal counter : integer := 0;
 begin
-    process(clk, reset)
+    process(clk, game_state)
     begin
         if reset = '1' then
             counter <= 0;

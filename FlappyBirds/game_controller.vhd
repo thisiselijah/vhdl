@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+--The state machine
 entity game_controller is
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -13,14 +13,14 @@ entity game_controller is
 end game_controller;
 
 architecture Behavioral of game_controller is
-    type state_type is (POWER_ON, WAIT_STATE, RUNNING, GAME_OVER);
+    type state_type is (WAIT_STATE, START, RUNNING, GAME_OVER);
     signal current_state, next_state : state_type;
     signal internal_score : INTEGER range 0 to 99 := 0; -- Internal score signal
 begin
     process(clk, reset)
     begin
         if reset = '1' then
-            current_state <= POWER_ON;
+            current_state <= WAIT_STATE;
             internal_score <= 0;
         elsif rising_edge(clk) then
             current_state <= next_state;
@@ -32,16 +32,20 @@ begin
         end if;
     end process;
 
-    process(current_state, collision, start_button)
+    process(current_state, collision, start_button, reset)
     begin
         case current_state is
-            when POWER_ON =>
-                next_state <= WAIT_STATE; 
             when WAIT_STATE =>
+                if start_button = '1' then
+                    next_state <= START; 
+                else
+                    next_state <= WAIT_STATE;
+                end if;
+            when START =>
                 if start_button = '1' then
                     next_state <= RUNNING;
                 else
-                    next_state <= WAIT_STATE;
+                    next_state <= START;
                 end if;
             when RUNNING =>
                 if collision = '1' then
@@ -57,16 +61,11 @@ begin
     process(current_state)
     begin
         case current_state is
-            when POWER_ON =>
-                game_state <= "00";
-            when WAIT_STATE =>
-                game_state <= "01";
-            when RUNNING =>
-                game_state <= "10";
-            when GAME_OVER =>
-                game_state <= "11";
+            when WAIT_STATE   => game_state <= "00";
+            when START => game_state <= "01";
+            when RUNNING    => game_state <= "10";
+            when GAME_OVER  => game_state <= "11";
         end case;
     end process;
-
     score <= internal_score;
 end Behavioral;

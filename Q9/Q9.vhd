@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;entity Q9 is 
+	port(A, B, C, D, E: in std_logic;
+					 Y: out std_logic_vector(1 to 3));
+end Q9;
+
+architecture arch of Q9 is
+
+function Fn1(F: std_logic_vector(1 to 4)) 
+return std_logic is variable Temp: std_logic;
+begin
+	Temp := (F(1) xor F(2)) xor (F(3) xor (F(4)));
+	return Temp;
+end Fn1;
+
+begin
+	GEN : for i in 1 to 3 generate
+		Y(i) <= Fn1(A&B&C&D) xor E;
+	end generate;
+end arch;
