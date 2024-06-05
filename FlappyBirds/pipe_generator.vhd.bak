@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL; -- Use numeric_std for arithmetic operations
 
 entity pipe_generator is
     Port (
@@ -15,23 +14,48 @@ architecture Behavioral of pipe_generator is
     signal pipe_x     : INTEGER range 0 to 15 := 15;
     signal pipe_gap_y : INTEGER range 0 to 12 := 6; -- Initial gap position
     signal pipes      : STD_LOGIC_VECTOR(15 downto 0) := (others => '1');
-    signal slow_clk   : STD_LOGIC;
-    
+    signal en, reset : std_logic;
     
 begin
+    -- Process for controlling enable and reset signals based on game_state
+    process(game_state)
+    begin 
+        case game_state is
+			--Wait
+            when "00" =>
+                en <= '0';
+                reset <= '1';
+            --Start
+            when "01" =>
+                en <= '0';
+                reset <= '1';
+            --Running
+            when "10" =>
+                en <= '1';
+                reset <= '0';
+            --Game over
+            when "11" =>
+                en <= '0';
+                reset <= '1';
+            when others => null;
+        end case;
+    end process;
+
     -- Pipe position and gap update process
-    process(clk, reset)
+    process(clk, reset, en)
     begin
-        if reset = '1' then
-            pipe_x <= 15;
-            pipe_gap_y <= 6;
-        elsif rising_edge(slow_clk) then
-            if pipe_x = 0 then
+        if rising_edge(clk) then
+            if reset = '1' then
                 pipe_x <= 15;
-                -- Randomize gap position (this is a simplified example)
-                pipe_gap_y <= (pipe_gap_y + 3) mod 13; -- Simple example for new gap position
-            else
-                pipe_x <= pipe_x - 1;
+                pipe_gap_y <= 6;
+            elsif en = '1' then
+                if pipe_x = 0 then
+                    pipe_x <= 15;
+                    -- Randomize gap position (this is a simplified example)
+                    pipe_gap_y <= (pipe_gap_y + 3) mod 13; -- Simple example for new gap position
+                else
+                    pipe_x <= pipe_x - 1;
+                end if;
             end if;
         end if;
     end process;
@@ -44,6 +68,7 @@ begin
             pipes((pipe_gap_y + i)) <= '0';
         end loop;
     end process;
-    
+
     pipe_pos <= pipes;
+
 end Behavioral;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FlappyBirds
-Fri May 31 10:22:25 2024
+Mon Jun 03 20:31:04 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -13,17 +13,12 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FlappyBirds|game_controller:game_controller_inst|current_state
+  8. State Machine - |FlappyBirds|game_controller:u3|current_state
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 14. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 15. Parameter Settings for Inferred Entity Instance: pipe_generator:pipe_generator_inst|lpm_divide:Mod0
- 16. Port Connectivity Checks: "row_mux:row_mux_inst"
- 17. Port Connectivity Checks: "game_controller:game_controller_inst"
- 18. Analysis & Synthesis Messages
+ 11. Port Connectivity Checks: "game_controller:u3"
+ 12. Port Connectivity Checks: "pipe_generator:u2|lfsr:lfsr_inst"
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,24 +41,25 @@ applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 31 10:22:25 2024        ;
-; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
-; Revision Name                      ; FlappyBirds                                  ;
-; Top-level Entity Name              ; FlappyBirds                                  ;
-; Family                             ; Cyclone IV E                                 ;
-; Total logic elements               ; 350                                          ;
-;     Total combinational functions  ; 350                                          ;
-;     Dedicated logic registers      ; 62                                           ;
-; Total registers                    ; 62                                           ;
-; Total pins                         ; 45                                           ;
-; Total virtual pins                 ; 0                                            ;
-; Total memory bits                  ; 0                                            ;
-; Embedded Multiplier 9-bit elements ; 0                                            ;
-; Total PLLs                         ; 0                                            ;
-+------------------------------------+----------------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status   ; Successful - Mon Jun 03 20:31:04 2024        ;
+; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                 ; FlappyBirds                                  ;
+; Top-level Entity Name         ; FlappyBirds                                  ;
+; Family                        ; Stratix II                                   ;
+; Logic utilization             ; N/A                                          ;
+;     Combinational ALUTs       ; 0                                            ;
+;     Dedicated logic registers ; 0                                            ;
+; Total registers               ; 0                                            ;
+; Total pins                    ; 35                                           ;
+; Total virtual pins            ; 0                                            ;
+; Total block memory bits       ; 0                                            ;
+; DSP block 9-bit elements      ; 0                                            ;
+; Total PLLs                    ; 0                                            ;
+; Total DLLs                    ; 0                                            ;
++-------------------------------+----------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -71,9 +67,8 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP4CE40F23C8       ;                    ;
 ; Top-level entity name                                                      ; FlappyBirds        ; FlappyBirds        ;
-; Family name                                                                ; Cyclone IV E       ; Stratix II         ;
+; Family name                                                                ; Stratix II         ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -126,7 +121,7 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
@@ -153,122 +148,100 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 12     ;
+; Number detected on machine ; 3      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                               ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                     ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+
-; bird_control.vhd                 ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/bird_control.vhd           ;
-; clock_divider.vhd                ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/clock_divider.vhd          ;
-; collision_detection.vhd          ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/collision_detection.vhd    ;
-; FlappyBirds.vhd                  ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/FlappyBirds.vhd            ;
-; game_controller.vhd              ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/game_controller.vhd        ;
-; pipe_generator.vhd               ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/pipe_generator.vhd         ;
-; row_mux.vhd                      ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/row_mux.vhd                ;
-; seven_segment_decoder.vhd        ; yes             ; User VHDL File               ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/seven_segment_decoder.vhd  ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf                   ;
-; db/lpm_divide_ihm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/lpm_divide_ihm.tdf      ;
-; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/sign_div_unsign_akh.tdf ;
-; db/alt_u_div_84f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/alt_u_div_84f.tdf       ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/add_sub_7pc.tdf         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/add_sub_8pc.tdf         ;
-; db/lpm_divide_o9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/lpm_divide_o9m.tdf      ;
-; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/sign_div_unsign_dkh.tdf ;
-; db/alt_u_div_e4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/alt_u_div_e4f.tdf       ;
-; db/lpm_divide_k9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/lpm_divide_k9m.tdf      ;
-; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/sign_div_unsign_9kh.tdf ;
-; db/alt_u_div_m0f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/db/alt_u_div_m0f.tdf       ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                           ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------+
+; bird_control.vhd                 ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/bird_control.vhd        ;
+; clock_divider.vhd                ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/clock_divider.vhd       ;
+; collision_detection.vhd          ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/collision_detection.vhd ;
+; FlappyBirds.vhd                  ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/FlappyBirds.vhd         ;
+; game_controller.vhd              ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/game_controller.vhd     ;
+; pipe_generator.vhd               ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/pipe_generator.vhd      ;
+; row_mux.vhd                      ; yes             ; User VHDL File        ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/row_mux.vhd             ;
+; lfsr.vhd                         ; yes             ; Auto-Found VHDL File  ; C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/lfsr.vhd                ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 350         ;
-;                                             ;             ;
-; Total combinational functions               ; 350         ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 152         ;
-;     -- 3 input functions                    ; 61          ;
-;     -- <=2 input functions                  ; 137         ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 270         ;
-;     -- arithmetic mode                      ; 80          ;
-;                                             ;             ;
-; Total registers                             ; 62          ;
-;     -- Dedicated logic registers            ; 62          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 45          ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 61          ;
-; Total fan-out                               ; 1321        ;
-; Average fan-out                             ; 2.63        ;
-+---------------------------------------------+-------------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++----------------------------------------------+-------+
+; Resource                                     ; Usage ;
++----------------------------------------------+-------+
+; Estimated ALUTs Used                         ; 0     ;
+; Dedicated logic registers                    ; 0     ;
+;                                              ;       ;
+; Estimated ALUTs Unavailable                  ; 0     ;
+;                                              ;       ;
+; Total combinational functions                ; 0     ;
+; Combinational ALUT usage by number of inputs ;       ;
+;     -- 7 input functions                     ; 0     ;
+;     -- 6 input functions                     ; 0     ;
+;     -- 5 input functions                     ; 0     ;
+;     -- 4 input functions                     ; 0     ;
+;     -- <=3 input functions                   ; 0     ;
+;                                              ;       ;
+; Combinational ALUTs by mode                  ;       ;
+;     -- normal mode                           ; 0     ;
+;     -- extended LUT mode                     ; 0     ;
+;     -- arithmetic mode                       ; 0     ;
+;     -- shared arithmetic mode                ; 0     ;
+;                                              ;       ;
+; Estimated ALUT/register pairs used           ; 0     ;
+;                                              ;       ;
+; Total registers                              ; 0     ;
+;     -- Dedicated logic registers             ; 0     ;
+;     -- I/O registers                         ; 0     ;
+;                                              ;       ;
+;                                              ;       ;
+; I/O pins                                     ; 35    ;
++----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                            ;
-+---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Library Name ;
-+---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |FlappyBirds                                      ; 350 (14)          ; 62 (1)       ; 0           ; 0            ; 0       ; 0         ; 45   ; 0            ; |FlappyBirds                                                                                                                                    ; work         ;
-;    |bird_control:bird_control_inst|               ; 13 (13)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|bird_control:bird_control_inst                                                                                                     ;              ;
-;    |clock_divider:clock_divider_inst|             ; 55 (55)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|clock_divider:clock_divider_inst                                                                                                   ;              ;
-;    |collision_detection:collision_detection_inst| ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|collision_detection:collision_detection_inst                                                                                       ;              ;
-;    |game_controller:game_controller_inst|         ; 16 (16)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|game_controller:game_controller_inst                                                                                               ;              ;
-;    |lpm_divide:Div0|                              ; 43 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Div0                                                                                                                    ;              ;
-;       |lpm_divide_ihm:auto_generated|             ; 43 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Div0|lpm_divide_ihm:auto_generated                                                                                      ;              ;
-;          |sign_div_unsign_akh:divider|            ; 43 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Div0|lpm_divide_ihm:auto_generated|sign_div_unsign_akh:divider                                                          ;              ;
-;             |alt_u_div_84f:divider|               ; 43 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Div0|lpm_divide_ihm:auto_generated|sign_div_unsign_akh:divider|alt_u_div_84f:divider                                    ;              ;
-;    |lpm_divide:Mod0|                              ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Mod0                                                                                                                    ;              ;
-;       |lpm_divide_o9m:auto_generated|             ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Mod0|lpm_divide_o9m:auto_generated                                                                                      ;              ;
-;          |sign_div_unsign_dkh:divider|            ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider                                                          ;              ;
-;             |alt_u_div_e4f:divider|               ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_e4f:divider                                    ;              ;
-;    |pipe_generator:pipe_generator_inst|           ; 47 (24)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|pipe_generator:pipe_generator_inst                                                                                                 ;              ;
-;       |lpm_divide:Mod0|                           ; 23 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|pipe_generator:pipe_generator_inst|lpm_divide:Mod0                                                                                 ;              ;
-;          |lpm_divide_k9m:auto_generated|          ; 23 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|pipe_generator:pipe_generator_inst|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ;              ;
-;             |sign_div_unsign_9kh:divider|         ; 23 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|pipe_generator:pipe_generator_inst|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ;              ;
-;                |alt_u_div_m0f:divider|            ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|pipe_generator:pipe_generator_inst|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_m0f:divider ;              ;
-;    |row_mux:row_mux_inst|                         ; 78 (78)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|row_mux:row_mux_inst                                                                                                               ;              ;
-;    |seven_segment_decoder:seg1_inst|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|seven_segment_decoder:seg1_inst                                                                                                    ;              ;
-;    |seven_segment_decoder:seg2_inst|              ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FlappyBirds|seven_segment_decoder:seg2_inst                                                                                                    ;              ;
-+---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; |FlappyBirds               ; 0 (0)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 35   ; 0            ; |FlappyBirds        ; work         ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FlappyBirds|game_controller:game_controller_inst|current_state                                                ;
-+--------------------------+-------------------------+-----------------------+--------------------------+------------------------+
-; Name                     ; current_state.GAME_OVER ; current_state.RUNNING ; current_state.WAIT_STATE ; current_state.POWER_ON ;
-+--------------------------+-------------------------+-----------------------+--------------------------+------------------------+
-; current_state.POWER_ON   ; 0                       ; 0                     ; 0                        ; 0                      ;
-; current_state.WAIT_STATE ; 0                       ; 0                     ; 1                        ; 1                      ;
-; current_state.RUNNING    ; 0                       ; 1                     ; 0                        ; 1                      ;
-; current_state.GAME_OVER  ; 1                       ; 0                     ; 0                        ; 1                      ;
-+--------------------------+-------------------------+-----------------------+--------------------------+------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FlappyBirds|game_controller:u3|current_state                                                               ;
++--------------------------+-------------------------+-----------------------+---------------------+--------------------------+
+; Name                     ; current_state.GAME_OVER ; current_state.RUNNING ; current_state.START ; current_state.WAIT_STATE ;
++--------------------------+-------------------------+-----------------------+---------------------+--------------------------+
+; current_state.WAIT_STATE ; 0                       ; 0                     ; 0                   ; 0                        ;
+; current_state.START      ; 0                       ; 0                     ; 1                   ; 1                        ;
+; current_state.RUNNING    ; 0                       ; 1                     ; 0                   ; 1                        ;
+; current_state.GAME_OVER  ; 1                       ; 0                     ; 0                   ; 1                        ;
++--------------------------+-------------------------+-----------------------+---------------------+--------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                            ;
-+---------------------------------------------+-------------------------------------------------+
-; Register name                               ; Reason for Removal                              ;
-+---------------------------------------------+-------------------------------------------------+
-; clock_divider:clock_divider_inst|counter[0] ; Merged with row_mux:row_mux_inst|row_counter[0] ;
-; clock_divider:clock_divider_inst|counter[1] ; Merged with row_mux:row_mux_inst|row_counter[1] ;
-; clock_divider:clock_divider_inst|counter[2] ; Merged with row_mux:row_mux_inst|row_counter[2] ;
-; clock_divider:clock_divider_inst|counter[3] ; Merged with row_mux:row_mux_inst|row_counter[3] ;
-; Total Number of Removed Registers = 4       ;                                                 ;
-+---------------------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++---------------------------------------------+---------------------------------------+
+; Register name                               ; Reason for Removal                    ;
++---------------------------------------------+---------------------------------------+
+; collision_detection:u5|collision            ; Stuck at GND due to stuck port clear  ;
+; bird_control:u4|bird_y[0]                   ; Stuck at VCC due to stuck port preset ;
+; bird_control:u4|bird_y[3]                   ; Stuck at GND due to stuck port clear  ;
+; bird_control:u4|bird_y[1..2]                ; Stuck at VCC due to stuck port preset ;
+; game_controller:u3|current_state.GAME_OVER  ; Lost fanout                           ;
+; game_controller:u3|current_state.WAIT_STATE ; Lost fanout                           ;
+; game_controller:u3|current_state.START      ; Lost fanout                           ;
+; game_controller:u3|current_state.RUNNING    ; Lost fanout                           ;
+; Total Number of Removed Registers = 9       ;                                       ;
++---------------------------------------------+---------------------------------------+
 
 
 +------------------------------------------------------+
@@ -276,200 +249,33 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 62    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 61    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 14    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------+
-; Inverted Register Statistics                               ;
-+--------------------------------------------------+---------+
-; Inverted Register                                ; Fan out ;
-+--------------------------------------------------+---------+
-; bird_control:bird_control_inst|bird_y[0]         ; 14      ;
-; bird_control:bird_control_inst|bird_y[1]         ; 20      ;
-; bird_control:bird_control_inst|bird_y[2]         ; 11      ;
-; pipe_generator:pipe_generator_inst|pipe_gap_y[2] ; 19      ;
-; pipe_generator:pipe_generator_inst|pipe_gap_y[1] ; 17      ;
-; pipe_generator:pipe_generator_inst|pipe_x[3]     ; 2       ;
-; pipe_generator:pipe_generator_inst|pipe_x[2]     ; 3       ;
-; pipe_generator:pipe_generator_inst|pipe_x[1]     ; 4       ;
-; pipe_generator:pipe_generator_inst|pipe_x[0]     ; 5       ;
-; Total number of inverted registers = 9           ;         ;
-+--------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game_controller:u3"                                                                  ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; score ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |FlappyBirds|bird_control:bird_control_inst|bird_y[0] ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FlappyBirds|row_mux:row_mux_inst|Mux29               ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |FlappyBirds|row_mux:row_mux_inst|Mux16               ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |FlappyBirds|row_mux:row_mux_inst|Mux26               ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |FlappyBirds|row_mux:row_mux_inst|Mux30               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                ;
-; LPM_WIDTHD             ; 4              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_ihm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                ;
-; LPM_WIDTHD             ; 7              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_o9m ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_generator:pipe_generator_inst|lpm_divide:Mod0 ;
-+------------------------+----------------+-----------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                      ;
-+------------------------+----------------+-----------------------------------------------------------+
-; LPM_WIDTHN             ; 5              ; Untyped                                                   ;
-; LPM_WIDTHD             ; 5              ; Untyped                                                   ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                   ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                   ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                   ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                   ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                   ;
-; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                                                   ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                   ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                   ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                              ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                              ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                            ;
-+------------------------+----------------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------+
-; Port Connectivity Checks: "row_mux:row_mux_inst"       ;
-+----------------------+-------+----------+--------------+
-; Port                 ; Type  ; Severity ; Details      ;
-+----------------------+-------+----------+--------------+
-; frame_data[217..216] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[214..213] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[173..171] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[169..168] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[164..162] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[107..105] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[102..100] ; Input ; Info     ; Stuck at VCC ;
-; frame_data[255..232] ; Input ; Info     ; Stuck at GND ;
-; frame_data[230..218] ; Input ; Info     ; Stuck at GND ;
-; frame_data[212..201] ; Input ; Info     ; Stuck at GND ;
-; frame_data[197..190] ; Input ; Info     ; Stuck at GND ;
-; frame_data[188..185] ; Input ; Info     ; Stuck at GND ;
-; frame_data[181..179] ; Input ; Info     ; Stuck at GND ;
-; frame_data[177..174] ; Input ; Info     ; Stuck at GND ;
-; frame_data[161..158] ; Input ; Info     ; Stuck at GND ;
-; frame_data[156..155] ; Input ; Info     ; Stuck at GND ;
-; frame_data[153..150] ; Input ; Info     ; Stuck at GND ;
-; frame_data[148..147] ; Input ; Info     ; Stuck at GND ;
-; frame_data[145..142] ; Input ; Info     ; Stuck at GND ;
-; frame_data[140..139] ; Input ; Info     ; Stuck at GND ;
-; frame_data[137..134] ; Input ; Info     ; Stuck at GND ;
-; frame_data[132..131] ; Input ; Info     ; Stuck at GND ;
-; frame_data[129..125] ; Input ; Info     ; Stuck at GND ;
-; frame_data[123..116] ; Input ; Info     ; Stuck at GND ;
-; frame_data[114..108] ; Input ; Info     ; Stuck at GND ;
-; frame_data[104..103] ; Input ; Info     ; Stuck at GND ;
-; frame_data[99..89]   ; Input ; Info     ; Stuck at GND ;
-; frame_data[85..73]   ; Input ; Info     ; Stuck at GND ;
-; frame_data[69..57]   ; Input ; Info     ; Stuck at GND ;
-; frame_data[53..40]   ; Input ; Info     ; Stuck at GND ;
-; frame_data[38..24]   ; Input ; Info     ; Stuck at GND ;
-; frame_data[22..0]    ; Input ; Info     ; Stuck at GND ;
-; frame_data[231]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[215]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[200]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[199]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[198]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[189]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[184]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[183]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[182]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[178]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[170]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[167]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[166]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[165]      ; Input ; Info     ; Stuck at GND ;
-; frame_data[157]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[154]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[149]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[146]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[141]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[138]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[133]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[130]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[124]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[115]      ; Input ; Info     ; Stuck at VCC ;
-; frame_data[88]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[87]       ; Input ; Info     ; Stuck at GND ;
-; frame_data[86]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[72]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[71]       ; Input ; Info     ; Stuck at GND ;
-; frame_data[70]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[56]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[55]       ; Input ; Info     ; Stuck at GND ;
-; frame_data[54]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[39]       ; Input ; Info     ; Stuck at VCC ;
-; frame_data[23]       ; Input ; Info     ; Stuck at VCC ;
-+----------------------+-------+----------+--------------+
-
-
-+------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_controller_inst" ;
-+------------------+-------+----------+----------------------------+
-; Port             ; Type  ; Severity ; Details                    ;
-+------------------+-------+----------+----------------------------+
-; bird_x_pos[3..2] ; Input ; Info     ; Stuck at GND               ;
-; bird_x_pos[1]    ; Input ; Info     ; Stuck at VCC               ;
-; bird_x_pos[0]    ; Input ; Info     ; Stuck at GND               ;
-+------------------+-------+----------+----------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pipe_generator:u2|lfsr:lfsr_inst"                                                         ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; rst        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; rnd[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -478,7 +284,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri May 31 10:22:23 2024
+    Info: Processing started: Mon Jun 03 20:31:00 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FlappyBirds -c FlappyBirds
 Info: Found 2 design units, including 1 entities, in source file bird_control.vhd
     Info: Found design unit 1: bird_control-Behavioral
@@ -505,72 +311,93 @@ Info: Found 2 design units, including 1 entities, in source file seven_segment_d
     Info: Found design unit 1: seven_segment_decoder-Behavioral
     Info: Found entity 1: seven_segment_decoder
 Info: Elaborating entity "FlappyBirds" for the top level hierarchy
-Info: Elaborating entity "clock_divider" for hierarchy "clock_divider:clock_divider_inst"
-Info: Elaborating entity "bird_control" for hierarchy "bird_control:bird_control_inst"
-Info: Elaborating entity "pipe_generator" for hierarchy "pipe_generator:pipe_generator_inst"
-Info: Elaborating entity "collision_detection" for hierarchy "collision_detection:collision_detection_inst"
-Info: Elaborating entity "game_controller" for hierarchy "game_controller:game_controller_inst"
-Info: Elaborating entity "row_mux" for hierarchy "row_mux:row_mux_inst"
-Info: Elaborating entity "seven_segment_decoder" for hierarchy "seven_segment_decoder:seg1_inst"
-Info: Inferred 3 megafunctions from design logic
-    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
-    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
-    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_generator:pipe_generator_inst|Mod0"
-Info: Elaborated megafunction instantiation "lpm_divide:Div0"
-Info: Instantiated megafunction "lpm_divide:Div0" with the following parameter:
-    Info: Parameter "LPM_WIDTHN" = "7"
-    Info: Parameter "LPM_WIDTHD" = "4"
-    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_ihm.tdf
-    Info: Found entity 1: lpm_divide_ihm
-Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
-    Info: Found entity 1: sign_div_unsign_akh
-Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_84f.tdf
-    Info: Found entity 1: alt_u_div_84f
-Info: Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info: Found entity 1: add_sub_7pc
-Info: Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info: Found entity 1: add_sub_8pc
-Info: Elaborated megafunction instantiation "lpm_divide:Mod0"
-Info: Instantiated megafunction "lpm_divide:Mod0" with the following parameter:
-    Info: Parameter "LPM_WIDTHN" = "7"
-    Info: Parameter "LPM_WIDTHD" = "7"
-    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_o9m.tdf
-    Info: Found entity 1: lpm_divide_o9m
-Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
-    Info: Found entity 1: sign_div_unsign_dkh
-Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_e4f.tdf
-    Info: Found entity 1: alt_u_div_e4f
-Info: Elaborated megafunction instantiation "pipe_generator:pipe_generator_inst|lpm_divide:Mod0"
-Info: Instantiated megafunction "pipe_generator:pipe_generator_inst|lpm_divide:Mod0" with the following parameter:
-    Info: Parameter "LPM_WIDTHN" = "5"
-    Info: Parameter "LPM_WIDTHD" = "5"
-    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_k9m.tdf
-    Info: Found entity 1: lpm_divide_k9m
-Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
-    Info: Found entity 1: sign_div_unsign_9kh
-Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_m0f.tdf
-    Info: Found entity 1: alt_u_div_m0f
-Info: Registers with preset signals will power-up high
-Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (10541): VHDL Signal Declaration warning at FlappyBirds.vhd(11): used implicit default value for signal "seg" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at FlappyBirds.vhd(12): used implicit default value for signal "sel" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at FlappyBirds.vhd(22): object "score" assigned a value but never read
+Info: Elaborating entity "clock_divider" for hierarchy "clock_divider:u1"
+Info: Elaborating entity "pipe_generator" for hierarchy "pipe_generator:u2"
+Warning: Using design file lfsr.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: lfsr-Behavioral
+    Info: Found entity 1: lfsr
+Info: Elaborating entity "lfsr" for hierarchy "pipe_generator:u2|lfsr:lfsr_inst"
+Info: Elaborating entity "game_controller" for hierarchy "game_controller:u3"
+Info: Elaborating entity "bird_control" for hierarchy "bird_control:u4"
+Warning (10036): Verilog HDL or VHDL warning at bird_control.vhd(15): object "en" assigned a value but never read
+Warning (10631): VHDL Process Statement warning at bird_control.vhd(18): inferring latch(es) for signal or variable "reset", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "reset" at bird_control.vhd(18)
+Info: Elaborating entity "collision_detection" for hierarchy "collision_detection:u5"
+Warning (10631): VHDL Process Statement warning at collision_detection.vhd(17): inferring latch(es) for signal or variable "reset", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "reset" at collision_detection.vhd(17)
+Info: Elaborating entity "row_mux" for hierarchy "row_mux:u6"
+Warning (10540): VHDL Signal Declaration warning at row_mux.vhd(19): used explicit default value for signal "frame" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at row_mux.vhd(36): used explicit default value for signal "en" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at row_mux.vhd(36): used explicit default value for signal "reset" because signal was never assigned a value
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(58): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(59): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(60): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(61): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(62): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(63): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(64): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(65): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(66): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(67): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(68): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(69): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(70): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(71): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(72): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at row_mux.vhd(73): signal "frame" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10873): Using initial value X (don't care) for net "col_select" at row_mux.vhd(11)
 Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "col_select[0]" is stuck at GND
+    Warning (13410): Pin "col_select[1]" is stuck at GND
+    Warning (13410): Pin "col_select[2]" is stuck at GND
+    Warning (13410): Pin "col_select[3]" is stuck at GND
+    Warning (13410): Pin "row_out[0]" is stuck at VCC
+    Warning (13410): Pin "row_out[1]" is stuck at VCC
+    Warning (13410): Pin "row_out[2]" is stuck at VCC
+    Warning (13410): Pin "row_out[3]" is stuck at VCC
+    Warning (13410): Pin "row_out[4]" is stuck at VCC
+    Warning (13410): Pin "row_out[5]" is stuck at VCC
+    Warning (13410): Pin "row_out[6]" is stuck at VCC
+    Warning (13410): Pin "row_out[7]" is stuck at VCC
+    Warning (13410): Pin "row_out[8]" is stuck at VCC
+    Warning (13410): Pin "row_out[9]" is stuck at VCC
+    Warning (13410): Pin "row_out[10]" is stuck at VCC
+    Warning (13410): Pin "row_out[11]" is stuck at VCC
+    Warning (13410): Pin "row_out[12]" is stuck at VCC
+    Warning (13410): Pin "row_out[13]" is stuck at VCC
+    Warning (13410): Pin "row_out[14]" is stuck at VCC
+    Warning (13410): Pin "row_out[15]" is stuck at VCC
+    Warning (13410): Pin "seg[0]" is stuck at GND
+    Warning (13410): Pin "seg[1]" is stuck at GND
+    Warning (13410): Pin "seg[2]" is stuck at GND
+    Warning (13410): Pin "seg[3]" is stuck at GND
+    Warning (13410): Pin "seg[4]" is stuck at GND
+    Warning (13410): Pin "seg[5]" is stuck at GND
+    Warning (13410): Pin "seg[6]" is stuck at GND
     Warning (13410): Pin "seg[7]" is stuck at GND
+    Warning (13410): Pin "sel[0]" is stuck at GND
     Warning (13410): Pin "sel[1]" is stuck at GND
     Warning (13410): Pin "sel[2]" is stuck at GND
-Info: Timing-Driven Synthesis is running
-Info: Implemented 395 device resources after synthesis - the final resource count might be different
+Info: 4 registers lost all their fanouts during netlist optimizations. The first 4 are displayed below.
+    Info: Register "game_controller:u3|current_state.GAME_OVER" lost all its fanouts during netlist optimizations.
+    Info: Register "game_controller:u3|current_state.WAIT_STATE" lost all its fanouts during netlist optimizations.
+    Info: Register "game_controller:u3|current_state.START" lost all its fanouts during netlist optimizations.
+    Info: Register "game_controller:u3|current_state.RUNNING" lost all its fanouts during netlist optimizations.
+Warning: Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "bird_button"
+    Warning (15610): No output dependent on input pin "start_button"
+    Warning (15610): No output dependent on input pin "clk"
+    Warning (15610): No output dependent on input pin "reset"
+Info: Implemented 35 device resources after synthesis - the final resource count might be different
     Info: Implemented 4 input pins
-    Info: Implemented 41 output pins
-    Info: Implemented 350 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 253 megabytes
-    Info: Processing ended: Fri May 31 10:22:25 2024
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Implemented 31 output pins
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 64 warnings
+    Info: Peak virtual memory: 189 megabytes
+    Info: Processing ended: Mon Jun 03 20:31:04 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

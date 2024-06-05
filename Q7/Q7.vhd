@@ -15,9 +15,9 @@ component DFF is
 end component;
 
 begin
-Q(0) <= D;
-gen: for i in 0 to 2 generate
-        DF: component DFF port map (Q(i), clk, Q(i+1));
-end generate;
+	Q(0) <= D;
+	gen: for i in 0 to 2 generate
+		DF: component DFF port map (Q(i), clk, Q(i+1));
+	end generate;
 	
 end structural;

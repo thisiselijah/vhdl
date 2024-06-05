@@ -6,16 +6,15 @@ entity game_controller is
            reset : in STD_LOGIC;
            start_button : in STD_LOGIC;
            collision : in STD_LOGIC;
-           bird_x_pos : in INTEGER range 0 to 15; -- Bird's x position
            pipe_pos : in STD_LOGIC_VECTOR(15 downto 0); -- Pipe positions
            game_state : out STD_LOGIC_VECTOR(1 downto 0);
            score : out INTEGER range 0 to 99); -- Player's score
 end game_controller;
 
 architecture Behavioral of game_controller is
-    type state_type is (WAIT_STATE, START, RUNNING, GAME_OVER);
-    signal current_state, next_state : state_type;
-    signal internal_score : INTEGER range 0 to 99 := 0; -- Internal score signal
+type state_type is (WAIT_STATE, START, RUNNING, GAME_OVER);
+signal current_state, next_state : state_type;
+signal internal_score : INTEGER range 0 to 99 := 0; -- Internal score signal
 begin
     process(clk, reset)
     begin
@@ -24,7 +23,7 @@ begin
             internal_score <= 0;
         elsif rising_edge(clk) then
             current_state <= next_state;
-            if current_state = RUNNING and bird_x_pos = 2 and pipe_pos(0) = '0' then -- Detect pipe crossing
+            if current_state = RUNNING and pipe_pos(1) = '0' then -- Detect pipe crossing
                 if internal_score < 99 then
                     internal_score <= internal_score + 1;
                 end if;

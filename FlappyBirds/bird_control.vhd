@@ -5,14 +5,26 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity bird_control is
     Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
+           game_state : in std_logic_vector(1 downto 0);
            button : in STD_LOGIC; -- Input for button press
            bird_pos : out INTEGER range 0 to 13);
 end bird_control;
 
 architecture Behavioral of bird_control is
     signal bird_y : INTEGER range 0 to 13 := 7; -- Initial position
+    signal en, reset : std_logic;
+     
 begin
+	process(game_state)
+	begin 
+		case game_state is
+			when "00" => en <= '0';
+			when "01" => en <= '1'; reset <= '1';
+			when "10" => en <= '1';
+			when "11" => en <= '0';
+		end case;
+	end process;
+	
     process(clk, reset)
     begin
         if reset = '1' then

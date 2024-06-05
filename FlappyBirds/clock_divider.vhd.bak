@@ -10,9 +10,20 @@ entity clock_divider is
 end clock_divider;
 
 architecture Behavioral of clock_divider is
+    signal reset : std_logic;
     signal counter : integer := 0;
 begin
-    process(clk, reset)
+	process(game_state)
+	begin 
+		case game_state is
+			when "00" => en <= '0';
+			when "01" => en <= '1'; reset <= '1';
+			when "10" => en <= '1';
+			when "11" => en <= '0';
+		end case;
+	end process;
+	
+    process(clk)
     begin
         if reset = '1' then
             counter <= 0;
