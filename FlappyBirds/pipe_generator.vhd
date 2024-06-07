@@ -25,13 +25,7 @@ architecture Behavioral of pipe_generator is
     
 begin
     -- Instantiate LFSR
-    lfsr_inst : lfsr
-        Port map (
-            clk    => clk,
-            rst    => '0', -- No reset needed in this context
-            enable => en,
-            rnd    => rnd
-        );
+    lfsr_inst : lfsr Port map (clk    => clk, rst    => '0', enable => '1', rnd    => rnd);
 
     -- Process for controlling enable and reset signals based on game_state
     en <= '1' when game_state = "10" else '0';
@@ -57,10 +51,10 @@ begin
         if rising_edge(clk) then
             if en = '1' then
                 -- Initialize pipes with all ones (indicating full pipe)
-                pipes <= (others => '1');
+                pipes <= (others => '0');
                 -- Insert gap of 4 pixels
                 for i in 0 to GAP_SIZE - 1 loop
-                    pipes(pipe_gap_y + i) <= '0';
+                    pipes(pipe_gap_y + i) <= '1';
                 end loop;
                 pipe_pos <= pipes;
             end if;

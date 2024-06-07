@@ -36,8 +36,8 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Stratix II"
-set_global_assignment -name DEVICE AUTO
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE40F23C8
 set_global_assignment -name TOP_LEVEL_ENTITY FlappyBirds
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:26:47  MAY 30, 2024"
@@ -47,6 +47,39 @@ set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name MISC_FILE "C:/users/thisiselijah/Desktop/VHDL/FlappyBirds/FlappyBirds.dpf"
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name MISC_FILE "C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/FlappyBirds.dpf"
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE test.vwf
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_location_assignment PIN_B12 -to bird_button
+set_location_assignment PIN_T2 -to clk
+set_location_assignment PIN_V8 -to col_select[3]
+set_location_assignment PIN_U9 -to col_select[2]
+set_location_assignment PIN_U8 -to col_select[1]
+set_location_assignment PIN_T9 -to col_select[0]
+set_location_assignment PIN_Y4 -to reset
+set_location_assignment PIN_T16 -to row_out[15]
+set_location_assignment PIN_R17 -to row_out[14]
+set_location_assignment PIN_T17 -to row_out[13]
+set_location_assignment PIN_T15 -to row_out[12]
+set_location_assignment PIN_M7 -to row_out[11]
+set_location_assignment PIN_G11 -to row_out[10]
+set_location_assignment PIN_T14 -to row_out[9]
+set_location_assignment PIN_T12 -to row_out[8]
+set_location_assignment PIN_T11 -to row_out[7]
+set_location_assignment PIN_T10 -to row_out[6]
+set_location_assignment PIN_U15 -to row_out[5]
+set_location_assignment PIN_U14 -to row_out[4]
+set_location_assignment PIN_U13 -to row_out[3]
+set_location_assignment PIN_U12 -to row_out[2]
+set_location_assignment PIN_V13 -to row_out[1]
+set_location_assignment PIN_V12 -to row_out[0]
+set_location_assignment PIN_W6 -to start_button
+set_global_assignment -name MISC_FILE "C:/Users/user/Downloads/vhdl-main/vhdl-main/FlappyBirds/FlappyBirds.dpf"
+set_location_assignment PIN_V10 -to game_state_out[1]
+set_location_assignment PIN_W8 -to game_state_out[0]
+set_global_assignment -name VHDL_FILE lfsr.vhd
 set_global_assignment -name VHDL_FILE bird_control.vhd
 set_global_assignment -name VHDL_FILE clock_divider.vhd
 set_global_assignment -name VHDL_FILE collision_detection.vhd
@@ -55,9 +88,7 @@ set_global_assignment -name VHDL_FILE game_controller.vhd
 set_global_assignment -name VHDL_FILE pipe_generator.vhd
 set_global_assignment -name VHDL_FILE row_mux.vhd
 set_global_assignment -name VHDL_FILE seven_segment_decoder.vhd
-set_global_assignment -name MISC_FILE "C:/Users/user/Desktop/vhdl-main/vhdl-main/FlappyBirds/FlappyBirds.dpf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE test.vwf
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE test.vwf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"

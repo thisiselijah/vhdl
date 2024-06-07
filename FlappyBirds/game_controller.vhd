@@ -12,7 +12,7 @@ entity game_controller is
 end game_controller;
 
 architecture Behavioral of game_controller is
-type state_type is (WAIT_STATE, START, RUNNING, GAME_OVER);
+type state_type is (WAIT_STATE, RUNNING, GAME_OVER);
 signal current_state, next_state : state_type;
 signal internal_score : INTEGER range 0 to 99 := 0; -- Internal score signal
 begin
@@ -30,21 +30,16 @@ begin
             end if;
         end if;
     end process;
-
-    process(current_state, collision, start_button, reset)
+    --Start
+	
+    process(current_state, collision, start_button)
     begin
         case current_state is
             when WAIT_STATE =>
                 if start_button = '1' then
-                    next_state <= START; 
+                    next_state <= RUNNING; 
                 else
                     next_state <= WAIT_STATE;
-                end if;
-            when START =>
-                if start_button = '1' then
-                    next_state <= RUNNING;
-                else
-                    next_state <= START;
                 end if;
             when RUNNING =>
                 if collision = '1' then
@@ -61,9 +56,9 @@ begin
     begin
         case current_state is
             when WAIT_STATE   => game_state <= "00";
-            when START => game_state <= "01";
             when RUNNING    => game_state <= "10";
             when GAME_OVER  => game_state <= "11";
+            when others => null;
         end case;
     end process;
     score <= internal_score;

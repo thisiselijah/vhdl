@@ -9,7 +9,9 @@ entity FlappyBirds is
            col_select : out STD_LOGIC_VECTOR(3 downto 0);
            row_out : out STD_LOGIC_VECTOR(15 downto 0);
            seg : out STD_LOGIC_VECTOR(7 downto 0); -- Segments for 7-segment display
-           sel : out STD_LOGIC_VECTOR(2 downto 0)); -- 3-bit select for common cathode controls
+           sel : out STD_LOGIC_VECTOR(2 downto 0);
+           game_state_out : out std_logic_vector(1 downto 0)
+           ); -- 3-bit select for common cathode controls
 end FlappyBirds;
 
 architecture Behavioral of FlappyBirds is
@@ -48,7 +50,6 @@ constant frame_example : STD_LOGIC_VECTOR(255 downto 0) :=
 
 component clock_divider is 
 	Port ( clk          : in STD_LOGIC;
-           game_state   : in STD_LOGIC_vector(1 downto 0);
            clk_div : inout STD_LOGIC);
 end component;
 
@@ -74,9 +75,10 @@ component row_mux is
           bird_y      : in  INTEGER range 0 to 13;
           game_state  : in  STD_LOGIC_VECTOR(1 downto 0);
           col_select  : out STD_LOGIC_VECTOR(3 downto 0);
-          row_out     : out STD_LOGIC_VECTOR(15 downto 0)
+          row_out     : out STD_LOGIC_VECTOR(15 downto 0);
+          collision   : out std_logic
     );
-component row_mux;
+end component;
 
 component bird_control is
     Port ( clk : in STD_LOGIC;
@@ -85,21 +87,18 @@ component bird_control is
            bird_pos : out INTEGER range 0 to 13);
 end component;
 
-component collision_detection is
-    Port ( clk : in STD_LOGIC;
-           game_state : in std_logic_vector(1 downto 0);
-           bird_y : in INTEGER range 0 to 13;
-           pipe_pos : in STD_LOGIC_VECTOR(15 downto 0);
-           collision : out STD_LOGIC);
-end component;
+
 
 begin
 
-    u1 : clock_divider Port map(clk, game_state, clk_div);
-    u2 : pipe_generator Port map(clk_div, game_state, pipe_pos); 
-    u3 : game_controller Port map(clk, reset, start_button, collision, pipe_pos, game_state, score);
-    u4 : bird_control Port map(clk, game_state, bird_button, bird_pos);
-    u5 : collision_detection Port map(clk, game_state, bird_pos, pipe_pos, collision);
-    u6 : row_mux Port map(clk, pipe_pos, bird_pos, game_state, col_select, row_out);              
+    u1 : clock_divider Port map(clk, clk_div);
+    u2 : game_controller Port map(clk, reset, start_button, collision, pipe_pos, game_state, score);
+    u3 : pipe_generator Port map(clk_div, game_state, pipe_pos); 
+    u4 : row_mux Port map(clk, pipe_pos, bird_pos, game_state, col_select, row_out);  
+    u5 : bird_control Port map(clk, game_state, bird_button, bird_pos);    
+    -- 0000 0001 0010 0011
+    
+    game_state_out <= game_state;
+               
     
 end Behavioral;

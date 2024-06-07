@@ -5,24 +5,18 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity clock_divider is
     Port ( clk : in STD_LOGIC;
-           game_state : in STD_LOGIC_VECTOR(1 downto 0);
            clk_div : inout STD_LOGIC);
 end clock_divider;
 
 architecture Behavioral of clock_divider is
-    signal reset : std_logic;
+    signal en : std_logic;
     signal counter : integer := 0;
 begin
 	
-	reset <= '1' when game_state = "01" else '0';
-	
-    process(clk, reset)
+    process(clk)
     begin
-        if reset = '1' then
-            counter <= 0;
-            clk_div <= '0';
-        elsif rising_edge(clk) then
-            if counter = 10 then
+        if rising_edge(clk) then
+            if counter = 1999 then
                 counter <= 0;
                 clk_div <= not clk_div;
             else

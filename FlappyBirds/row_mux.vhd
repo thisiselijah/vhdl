@@ -1,20 +1,21 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_unsigned.all;
+use ieee.std_logic_unsigned.ALL;
 
 entity row_mux is
     Port ( 
         clk         : in  STD_LOGIC;
         gen_pipe    : in  std_logic_vector(15 downto 0);
-        bird_y      : in  INTEGER range 0 to 13;
+        bird_y      : in  INTEGER range 0 to 14;
         game_state  : in  STD_LOGIC_VECTOR(1 downto 0);
         col_select  : out STD_LOGIC_VECTOR(3 downto 0);
-        row_out     : out STD_LOGIC_VECTOR(15 downto 0)
+        row_out     : out STD_LOGIC_VECTOR(15 downto 0);
+        collision   : out std_logic
     );
 end row_mux;
 
 architecture Behavioral of row_mux is
-    signal counter : std_logic_vector(3 downto 0) := "0000";
+    signal counter : std_logic_vector(0 to 3) := "0000";
     type matrix_type is array (15 downto 0) of std_logic_vector(15 downto 0);
     signal frame : matrix_type := (
               "1111111111111111", -- row(15)
@@ -33,47 +34,110 @@ architecture Behavioral of row_mux is
               "1111111111111111", -- row(2)
               "1111111111111111", -- row(1)
               "1111111111111111"); -- row(0)
-    signal en, reset : std_logic := '0';
-begin
+    signal en : std_logic := '0';
+    signal last_pipe : std_logic_vector(15 downto 0) := (others => '0');
+    signal slow_clk : std_logic;
+    signal clk_counter : integer := 0;
     
-    process(clk, reset)
+    signal birdsframe0, birdsframe1 : std_logic_vector(15 downto 0);
+    
+begin
+    en <= '1' when game_state = "10";
+    
+    
+    process(slow_clk, en)
     begin
-        if reset = '1' then 
-            counter <= "0000";
-        elsif rising_edge(clk) then
+        if rising_edge(slow_clk) then
+            if en = '1' then
+				if gen_pipe /= last_pipe then
+                    frame(0) <= gen_pipe;
+                    last_pipe <= gen_pipe;
+                else frame(0) <= (others => '1');
+                end if;
+                
+                frame(15) <= frame(14);
+                frame(13)(bird_y + 1 downto bird_y) <= "11";
+                frame(14) <= frame(13);  
+                birdsframe0<= (others => '1');
+                birdsframe0(bird_y + 1 downto bird_y) <= "00";
+				
+				frame(12)(bird_y + 1 downto bird_y) <= "11";
+                if (frame(12) or birdsframe1) = "1111111111111111" then 
+					frame(12)(bird_y + 1 downto bird_y)<= "00";
+					frame(13)<=frame(12);
+				else 
+					collision <= '1';
+				end if;
+				birdsframe1<= (others => '1'); 
+                birdsframe1(bird_y + 1 downto bird_y) <= "00";
+				
+				if (frame(11) or birdsframe0) = "1111111111111111" then 
+					frame(11)(bird_y + 1 downto bird_y)<= "00";
+					frame(12)<=frame(11);
+				else 
+					collision <= '1';
+				end if;
+                       
+                for i in 11 downto 1 loop
+					frame(i) <= frame(i-1);
+				end loop;
+                
+                      
+            end if;
+        end if;
+    end process;
+    
+	
+   
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if clk_counter = 4999 then
+                clk_counter <= 0;
+                slow_clk <= not slow_clk;
+            else
+                clk_counter <= clk_counter + 1;
+            end if;
+        end if;
+    end process;
+    
+    process(clk, en)
+    begin
+        if rising_edge(clk) then
             if en = '1' then
                 if counter = "1111" then
                     counter <= "0000";
                 else
                     counter <= counter + 1;
                 end if;
-                col_select <= counter;
             end if;
         end if;
     end process;
     
+    col_select <= counter;
+
+    -- Do not change this process as per your requirement
     process(counter)
     begin
         case counter is
             when "0000" => row_out <= frame(15);
-            when "0001" => row_out <= frame(14);
-            when "0010" => row_out <= frame(13);
-            when "0011" => row_out <= frame(12);
-            when "0100" => row_out <= frame(11);
-            when "0101" => row_out <= frame(10);
+            when "1000" => row_out <= frame(14);
+            when "0100" => row_out <= frame(13);
+            when "1100" => row_out <= frame(12);
+            when "0010" => row_out <= frame(11);
+            when "1010" => row_out <= frame(10);
             when "0110" => row_out <= frame(9);
-            when "0111" => row_out <= frame(8);
-            when "1000" => row_out <= frame(7);
+            when "1110" => row_out <= frame(8);
+            when "0001" => row_out <= frame(7);
             when "1001" => row_out <= frame(6);
-            when "1010" => row_out <= frame(5);
-            when "1011" => row_out <= frame(4);
-            when "1100" => row_out <= frame(3);
-            when "1101" => row_out <= frame(2);
-            when "1110" => row_out <= frame(1);
+            when "0101" => row_out <= frame(5);
+            when "1101" => row_out <= frame(4);
+            when "0011" => row_out <= frame(3);
+            when "1011" => row_out <= frame(2);
+            when "0111" => row_out <= frame(1);
             when "1111" => row_out <= frame(0);
             when others => null;
         end case;
     end process;
 
 end Behavioral;
-            
